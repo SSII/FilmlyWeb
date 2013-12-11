@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package FilmlyWeb.Controlador;
+package FilmlyWeb.Modelo;
 
 /**
  *
  * @author Pedro
  */
-public interface ObservadorLoginUsuario {
+public interface ObservadorCambioUsuarioLogueado {
     
-    public void cambioLoginUsuario();
+    public void cambioUsuarioLogeado();
 }

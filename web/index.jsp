@@ -25,25 +25,21 @@
     </div>
     <div id="navigation">
       <ul>
-          <li>
-              <div id="cssUsuarios">
-                <form action="#" method="get" accept-charset="utf-8" >
-                    <input type="text" name="search field" value="Usuario" id="search-field" class="blink search-field"  />
-                </form>
-              </div>
-          </li>
+          <form action="login.jsp" method="post" accept-charset="utf-8">
+            <li>
+                <div id="cssUsuarios">
+                      <input type="text" name="CajaUsuario" value="Usuario" id="search-field" class="blink search-field"  />
+                </div>
+            </li>
                 <div id="cssPassword">
-                   <form action="#" method="get" accept-charset="utf-8" >
-                       <input type="password" name="search field" id="search-field" class="blink search-field"  />
-                   </form>
+                    <input type="password" name="CajaPass" id="search-field" class="blink search-field"/>
                  </div>
-           <li>
-              <div id="cssLogin">
-                   <form action="#" method="get" accept-charset="utf-8" >
-                       <input type="button" name="search field" value="Login" id="search-field" class="blink search-field"  />
-                   </form>
-                 </div>
-          </li>
+            <li>
+                <div id="cssLogin">
+                     <input type="submit" name="BotonLogin" value="Login" id="search-field" class="blink search-field"  />
+                </div>
+            </li>
+          </form>
           
           <li>
               <div id="cssRegistro">

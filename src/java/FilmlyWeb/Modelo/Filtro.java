@@ -10,7 +10,6 @@ package FilmlyWeb.Modelo;
  *
  * @author Pedro
  */
-public interface ObservadorCambioUsuarioLogeado {
+public class Filtro {
     
-    public void cambioUsuarioLogeado();
 }

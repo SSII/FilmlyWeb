@@ -6,7 +6,7 @@
 
 package FilmlyWeb.Controlador;
 
-import FilmlyWeb.Modelo.Pelicula;
+import FilmlyWeb.Modelo.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Pedro
  */
-public class Controlador {
+public class Controlador implements ObservadorCambioUsuarioLogueado{
     
     List<ObservadorBusquedaPelicula> _observadoresBusquedaPelicula;
     List<ObservadorNuevaValoracion> _observadoresNuevaValoracion;
@@ -22,6 +22,9 @@ public class Controlador {
     List<ObservadorNuevoUsuario> _observadoresNuevoUsuario;
     List<ObservadorPerfilPelicula> _observadoresPerfilPelicula;
     List<ObservadorLoginUsuario> _observadoresLoginUsuario;
+    Modelo modelo;
+    
+    
     static Controlador instancia = null;
     
     private Controlador(){
@@ -31,6 +34,12 @@ public class Controlador {
         _observadoresNuevoComentario = new LinkedList();
         _observadoresNuevoUsuario = new LinkedList();
         _observadoresPerfilPelicula = new LinkedList();
+        
+        
+        
+        modelo = new Modelo();
+        
+        modelo.registrarObservadorCambioUsuarioLogueado(this);
         
     }
     
@@ -63,7 +72,9 @@ public class Controlador {
     }
     
     private void notificarCambioLogin(){
-        
+        for (ObservadorLoginUsuario o : _observadoresLoginUsuario) {
+            o.cambioLoginUsuario();
+        }
     }
     
     public void registrarObservadorBusquedaPelicula(){
@@ -92,6 +103,20 @@ public class Controlador {
     
     public List<Pelicula> getPeliculasBuscadas(){
         return null;
+    }
+
+    @Override
+    public void cambioUsuarioLogeado() {
+            
+          notificarCambioLogin();       
+    }
+    
+    public void loginUsuario(String usuario, String pass){
+        modelo.loginUsuario(usuario, pass);
+    }
+    
+    public Usuario getUsuarioLogueado(){
+        return modelo.getUsuarioLogueado();
     }
     
 }

@@ -13,10 +13,10 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Pedro
  */
-public class MD5 {
+abstract public class MD5 {
     private static final char[] CONSTS_HEX = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public String cifrar(String stringAEncriptar) {
+    public static String cifrar(String stringAEncriptar) {
         try {
             MessageDigest msgd = MessageDigest.getInstance("MD5");
             byte[] bytes = msgd.digest(stringAEncriptar.getBytes());

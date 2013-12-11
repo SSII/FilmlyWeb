@@ -24,7 +24,7 @@ public class GestorPersistencia {
     
     private GestorPersistencia() {
         
-        emf = Persistence.createEntityManagerFactory("AlgoritmosPU");
+        emf = Persistence.createEntityManagerFactory("FilmlyWebPU");
         em = emf.createEntityManager();
         
     }
