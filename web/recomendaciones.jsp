@@ -58,7 +58,9 @@
       </ul>
     </div>
   </div>
-  <div id="main">
+  
+  <!--Lista de peliculas -->    
+  <!--<div id="main">
     <div id="content">
               <div class="box">
 
@@ -72,6 +74,70 @@
             <span class="comments">12</span> </div>
         </div>
               </div>
+    </div>-->
+
+    <div align="center" id="sub-navigation">
+        <br>
+        <table border="0" align="center">
+            <tr>
+                <td>
+                    <tr>
+                        <th COLSPAN="2">
+                        Celda de dos columnas
+                        </th>
+                    </tr>
+                    <tr>
+                        <td ROWSPAN="2">
+                        Celda de dos filas
+                        </td>
+                        <td>
+                        Fila2,Columna2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        Fila3,Columna2
+                        </td>
+                    </tr>
+                </td>
+                <td>
+                    dato 2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dato 3
+                </td>
+                <td>
+                    dato 4
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dato 5
+                </td>
+                <td>
+                    dato 6
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dato 7
+                </td>
+                <td>
+                    dato 8
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dato 9
+                </td>
+                <td>
+                    dato 10
+                </td>
+            </tr>
+
+        </table>
     </div>
    
   <div id="footer">
