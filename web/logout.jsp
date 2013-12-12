@@ -18,13 +18,9 @@
 
 
         <%
-            Controlador.getInstancia().
-            
-            if( u != null ){
-               response.sendRedirect("home.jsp");
-            } else {
-               response.sendRedirect("registro.jsp");
-            }           
+            Controlador.getInstancia().logout();          
+           
+            response.sendRedirect("index.jsp");     
         %>
     </body>
 </html>

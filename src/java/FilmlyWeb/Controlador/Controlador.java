@@ -120,7 +120,7 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
     }
     
     public void logout(){
-       
+        modelo.logout();
     }
     
 }

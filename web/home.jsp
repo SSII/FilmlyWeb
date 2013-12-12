@@ -10,7 +10,9 @@
 <!-- START PAGE SOURCE -->
 <%@page import="FilmlyWeb.Controlador.Controlador" %>
 
-<% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre(); %>
+<% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre(); 
+   int nvaloraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size();
+%>
 
 
 <div id="shell">
@@ -48,7 +50,7 @@
     
    <div id="sub-navigation">
       <ul>
-        <li><a href="#">Mis recomendaciones</a></li>
+        <li><a href="recomendaciones.jsp">Mis recomendaciones</a></li>
         <li><a href="#">Mis valoraciones</a></li>
         <li><a href="#">Mejor valoradas</a></li>
         <li><a href="#">Más comentadas</a></li>
@@ -58,9 +60,11 @@
   </div>
   <div id="main">
     <div id="content">
+      <% if(nvaloraciones != 0){ %>
+        
       <div class="box">
         <div class="head">
-          <h2>Novedades</h2>
+          <h2>Te recomendamos</h2>
           <p class="text-right"><a href="#">Ver todos</a></p>
         </div>
         <div class="movie">
@@ -119,6 +123,17 @@
         </div>
         <div class="cl">&nbsp;</div>
       </div>
+        
+        <% } else { %>
+        
+        <div class="box">
+        <div class="head">
+        <h2> Valora películas. Para recomendarte películas necesitamos saber tus gustos. </h2>
+        </div>
+        </div>
+        
+        <% } %>
+        
       <div class="box">
         <div class="head">
           <h2>Mejor valoradas</h2>

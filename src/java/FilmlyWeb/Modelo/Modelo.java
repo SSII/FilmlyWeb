@@ -119,7 +119,11 @@ public class Modelo {
         }
         
         notificarCambioUsuarioLogueado();
+    }
+    
+    public void logout(){
+        usuarioLogueado = null;
         
-        
+        notificarCambioUsuarioLogueado();
     }
 }
