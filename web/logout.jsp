@@ -18,12 +18,7 @@
 
 
         <%
-            String pass = MD5.cifrar( request.getParameter("CajaPass") );
-            String usuario = request.getParameter("CajaUsuario");
-                       
-            Controlador.getInstancia().loginUsuario(usuario, pass);
-         
-            Usuario u = Controlador.getInstancia().getUsuarioLogueado();
+            Controlador.getInstancia().
             
             if( u != null ){
                response.sendRedirect("home.jsp");

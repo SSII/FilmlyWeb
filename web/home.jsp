@@ -8,11 +8,14 @@
 </head>
 <body>
 <!-- START PAGE SOURCE -->
+<%@page import="FilmlyWeb.Controlador.Controlador" %>
+
+<% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre(); %>
 
 
 <div id="shell">
   <div id="header">
-    <h1 id="logo"><a href="index.jsp">MovieHunter</a></h1>
+    <h1 id="logo"><a href="home.jsp">MovieHunter</a></h1>
     <div class="social"> <span>Síguenos en:</span>
       <ul>
         <li><a class="twitter" href="#">twitter</a></li>
@@ -23,29 +26,11 @@
     </div>
     <div id="navigation">
       <ul>
-          <form action="login.jsp" method="post" accept-charset="utf-8">
-            <li>
-                <div id="cssUsuarios">
-                      <input type="text" name="CajaUsuario" value="Usuario" id="search-field" class="blink search-field"  />
-                </div>
-            </li>
-                <div id="cssPassword">
-                    <input type="password" name="CajaPass" id="search-field" class="blink search-field"/>
-                 </div>
-            <li>
-                <div id="cssLogin">
-                     <input type="submit" name="BotonLogin" value="Login" id="search-field" class="blink search-field"  />
-                
-                </div>
-            </li>
-          </form>
-          
-         
-          
           <li>
-              <div id="cssRegistro">
-                  <a href="registro.jsp">Regístrate</a>
-              </div>
+              <p><%= "Bienvenido " + nombre %> </p>
+          </li>
+          <li>
+              <a href="logout.jsp">Cerrar sesión</a>
           </li>
 
       </ul>
@@ -61,8 +46,10 @@
         
     </div>
     
-    <div id="sub-navigation">
+   <div id="sub-navigation">
       <ul>
+        <li><a href="#">Mis recomendaciones</a></li>
+        <li><a href="#">Mis valoraciones</a></li>
         <li><a href="#">Mejor valoradas</a></li>
         <li><a href="#">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
@@ -255,7 +242,7 @@
         <div class="cl">&nbsp;</div>
       </div>
     </div>
-    
+   
   <div id="footer">
     <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
     <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>

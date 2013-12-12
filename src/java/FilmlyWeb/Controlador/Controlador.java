@@ -119,4 +119,8 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return modelo.getUsuarioLogueado();
     }
     
+    public void logout(){
+       
+    }
+    
 }
