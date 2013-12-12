@@ -1,3 +1,4 @@
+<%@page import="java.util.Scanner"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,9 +10,11 @@
 <body>
 <!-- START PAGE SOURCE -->
 <%@page import="FilmlyWeb.Controlador.Controlador" %>
+<%@page import="java.io.*" %>
+<%@page import="java.net.*" %>
 
 <% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre(); 
-   int nvaloraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size();
+   String poster = null;
 %>
 
 
@@ -63,16 +66,32 @@
   <!--<div id="main">
     <div id="content">
               <div class="box">
+                 <%
+                    try{
+                        URL url = new URL("http://www.imdbapi.com/?i=&t=the+batman+vs.+dracula");
+                        BufferedReader in = new BufferedReader(
+                        new InputStreamReader(url.openStream()));
 
-       <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span> <a href="#"><img src="css/images/movie14.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
+                        Scanner scanner = new Scanner(in.readLine());
+                        scanner.useDelimiter(",");
+                        
+                        while( scanner.hasNext() ){
+                            poster = scanner.next();
+                        
+                            if( poster.contains("\"Poster\"") ){
+                                Scanner scanner2 = new Scanner(poster);
+                                scanner2.useDelimiter("\"");
+                                poster = scanner2.next();
+                                poster = scanner2.next();
+                                poster = scanner2.next();
+                                break;
+                            }
+                        }
+                        
+                        
+                        }catch(Exception ex){}
+                    %>
+                    <img src="<%=poster %>" alt=""></img>
               </div>
     </div>-->
 
