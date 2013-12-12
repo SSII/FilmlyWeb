@@ -13,8 +13,8 @@
         <!-- START PAGE SOURCE -->
         <div id="shell">
             <div id="header">
-                <h1 id="logo"><a href="#">Filmly</a></h1>
-                <div class="social"> <span>FOLLOW US ON:</span>
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
+                <div class="social"> <span>Síguenos en:</span>
                     <ul>
                         <li><a class="twitter" href="#">twitter</a></li>
                         <li><a class="facebook" href="#">facebook</a></li>

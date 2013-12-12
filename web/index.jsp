@@ -14,8 +14,8 @@
 
 <div id="shell">
   <div id="header">
-    <h1 id="logo"><a href="#">MovieHunter</a></h1>
-    <div class="social"> <span>Siguenos en:</span>
+    <h1 id="logo"><a href="index.jsp">MovieHunter</a></h1>
+    <div class="social"> <span>Síguenos en:</span>
       <ul>
         <li><a class="twitter" href="#">twitter</a></li>
         <li><a class="facebook" href="#">facebook</a></li>
@@ -43,7 +43,7 @@
           
           <li>
               <div id="cssRegistro">
-                  <a href="#">Registrate</a>
+                  <a href="registro.jsp">Regístrate</a>
               </div>
           </li>
 
@@ -63,7 +63,7 @@
     <div id="sub-navigation">
       <ul>
         <li><a href="#">Mejor valoradas</a></li>
-        <li><a href="#">Mas comentadas</a></li>
+        <li><a href="#">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
       </ul>
     </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="box">
         <div class="head">
-          <h2>Mas comentada</h2>
+          <h2>Más comentadas</h2>
           <p class="text-right"><a href="#">Ver todos</a></p>
         </div>
         <div class="movie">

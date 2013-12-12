@@ -58,11 +58,4 @@ public class Vista implements ObservadorLoginUsuario{
             
         }
     }
-    
-    public void login(){
-         Controlador.getInstancia().loginUsuario(usuario, password);
-    }
-
-    
-
 }

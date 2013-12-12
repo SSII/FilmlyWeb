@@ -12,30 +12,24 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@page import="FilmlyWeb.Vista.*"%>
         <%@page import="FilmlyWeb.Controlador.Controlador" %>
         <%@page import="FilmlyWeb.Modelo.Usuario" %>
+        <%@page import="FilmlyWeb.Vista.MD5" %>
 
 
         <%
             String pass = MD5.cifrar( request.getParameter("CajaPass") );
             String usuario = request.getParameter("CajaUsuario");
                        
-            Vista.getInstancia().setPassword(pass);
-            Vista.getInstancia().setUsuario(usuario);
-            Vista.getInstancia().login();
-            
+            Controlador.getInstancia().loginUsuario(usuario, pass);
+         
             Usuario u = Controlador.getInstancia().getUsuarioLogueado();
             
             if( u != null ){
                 out.println("BIEEEEEEN");
             } else {
                 out.println("MAAAAAL");
-            }
-            
-            
-            
-            
+            }           
         %>
     </body>
 </html>
