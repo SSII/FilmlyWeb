@@ -123,4 +123,8 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         modelo.logout();
     }
     
+    public DetallesPelicula getDetallesPelicula(Pelicula p){
+        return modelo.getDetallesPelicula(p);
+    }
+    
 }

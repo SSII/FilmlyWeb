@@ -65,304 +65,364 @@
                 <br>
                     <table border="0" align="center" cellpadding="5" cellspacing="5">
                         <!-- Primera fila-->
-                        <td>
+
                         <tr> 
                             <!-- Pelicula 1 -->
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                            
+                            <!-- Pelicula 2 -->
+                            <td style="padding-right: 20px"/>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                             
+                             
+                            
                         </tr>
 
-                        <!-- Pelicula 2 -->
-                        <tr style="padding-right: 10px"/>
-                        <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                    </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
-                        </tr>
 
-                        <!-- Pelicula 3 -->
-                        <tr style="padding-right: 10px"/>
-                        <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                    </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
-
-                        <!-- Pelicula 4 -->
-                        <tr style="padding-right: 10px"/>
-                        <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                    </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
-
-                        <!-- Pelicula 5 -->
-                        <tr style="padding-right: 10px"/>
-                        <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                    </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
-                        </td>
-                        <td>
-                            
-                            
-                            
-                            
-                            
-                            
+                        <!-- Segunda fila-->
+                        <tr style="padding-top: 20px"/>
                         <tr> 
                             <!-- Pelicula 1 -->
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                            
+                            <!-- Pelicula 2 -->
+                            <td style="padding-right: 20px"/>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                             
+                             
+                            
                         </tr>
 
-                        <!-- Pelicula 2 -->
-                        <tr style="padding-right: 10px"/>
+
+                        <!-- Tercera fila-->
+                        
+                        <tr style="padding-top: 20px"/>
                         <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
+                            <!-- Pelicula 1 -->
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                            
+                            <!-- Pelicula 2 -->
+                            <td style="padding-right: 20px"/>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                             
+                             
+                            
                         </tr>
 
-                        <!-- Pelicula 3 -->
-                        <tr style="padding-right: 10px"/>
+
+                        <!-- Cuarta fila-->
+
+                        <tr style="padding-top: 20px"/>
                         <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
+                            <!-- Pelicula 1 -->
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                            
+                            <!-- Pelicula 2 -->
+                            <td style="padding-right: 20px"/>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                             
+                             
+                            
                         </tr>
 
-                        <!-- Pelicula 4 -->
-                        <tr style="padding-right: 10px"/>
+
+                        <!-- Quinta fila-->
+                        
+                        <tr style="padding-top: 20px"/>
                         <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
+                            <!-- Pelicula 1 -->
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                            
+                            <!-- Pelicula 2 -->
+                            <td style="padding-right: 20px"/>
+                            <td rowspan="2"> 
+                                <div class="movie-list-image"> 
+                                    <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"/>
+                                </div>
+                            </td>
+                            <td><h1>Batman vs. Dracula (2012)</h1>
+                                <ul class="rating threestar">
+                                    <li class="one"></li>
+                                    <li class="two"></li>
+                                    <li class="three"></li>
+                                    <li class="four"></li>
+                                    <li class="five"></li>
+                                </ul>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p>
+                            </td>
+                            <td style="padding-right: 50px"/>
+                            <td rowspan="2" style="padding-bottom: 50px">
+                                <div class="puntuacion rojo">
+                                    <div class="valor-puntuacion entero">
+                                        4
                                     </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
+                                </div>
+                                <div>
+                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                </div>
+                            </td>
+                             
+                             
+                            
                         </tr>
 
-                        <!-- Pelicula 5 -->
-                        <tr style="padding-right: 10px"/>
-                        <tr> 
-                            <td rowspan="2"> <div class="movie-list-image"> <img src="http://ia.media-imdb.com/images/M/MV5BMTkyMTMwNjA3MV5BMl5BanBnXkFtZTcwNzE2NTI2OQ@@._V1_SX300.jpg" height="42" width="42"></td></div>
-                                <td><h1>Batman vs. Dracula (2012)</h1>
-                                    <ul class="rating threestar">
-                                        <li class="one"></li>
-                                        <li class="two"></li>
-                                        <li class="three"></li>
-                                        <li class="four"></li>
-                                        <li class="five"></li>
-                                    </ul>
-                                </td>
-                                <td style="padding-right: 50px"/>
-                                <td rowspan="2" style="padding-bottom: 50px">
-                                    <div class="puntuacion rojo">
-                                        <div class="valor-puntuacion entero">
-                                            4
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                    </div>
-                                </td>
-                        </tr>
-                        <tr> 
-                            <td><h3>Director:</h3><p><h3>Polla gorda el hornero</h3></p></td>
-                        </tr>
 
+                        
                     </table>
             </div>
 

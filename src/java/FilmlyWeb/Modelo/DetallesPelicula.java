@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Pedro
  */
-class DetallesPelicula {
+public class DetallesPelicula {
     Pelicula _pelicula;
 
     public DetallesPelicula(Pelicula _pelicula) {
@@ -38,6 +38,28 @@ class DetallesPelicula {
         url += aux;
         
         return url;
+    }
+    
+     public String getTitulo(){
+        String titulo = "";
+        try{
+            URL url = new URL( getURL() );
+            BufferedReader in = new BufferedReader(
+            new InputStreamReader(url.openStream()));
+            
+            Scanner scanner = new Scanner(in.readLine());
+            scanner.useDelimiter("\"");
+
+            while( scanner.hasNext() ){
+               if( scanner.next().equals("Title") ){
+                   scanner.next();
+                   titulo = scanner.next();
+               }
+            }
+
+        }catch(Exception ex){} 
+
+        return titulo;
     }
     
     public String getPoster(){

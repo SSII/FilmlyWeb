@@ -126,4 +126,10 @@ public class Modelo {
         
         notificarCambioUsuarioLogueado();
     }
+    
+    public DetallesPelicula getDetallesPelicula(Pelicula p){
+        DetallesPelicula detalles = new DetallesPelicula(p);
+        
+        return detalles;
+    }
 }
