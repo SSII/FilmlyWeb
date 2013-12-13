@@ -63,7 +63,7 @@
     
     <div id="sub-navigation">
       <ul>
-        <li><a href="#">Mejor valoradas</a></li>
+          <li><a href="mejorValoradas.jsp">Mejor valoradas</a></li>
         <li><a href="#">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
       </ul>

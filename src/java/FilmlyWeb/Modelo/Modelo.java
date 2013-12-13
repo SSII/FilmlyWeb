@@ -132,4 +132,11 @@ public class Modelo {
         
         return detalles;
     }
+    
+    public List<Pelicula> getPeliculasMasValoradas(){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from peliculas order by media desc limit 10", Pelicula.class);
+        
+        return q.getResultList();
+    }
 }

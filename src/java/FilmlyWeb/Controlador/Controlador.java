@@ -23,7 +23,9 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
     List<ObservadorPerfilPelicula> _observadoresPerfilPelicula;
     List<ObservadorLoginUsuario> _observadoresLoginUsuario;
     Modelo modelo;
-    
+    List<Pelicula> _peliculasMasValoradas;
+    List<Pelicula> _peliculasMasComentadas;
+    List<Pelicula> _peliculasNovedades;
     
     static Controlador instancia = null;
     
@@ -34,7 +36,9 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         _observadoresNuevoComentario = new LinkedList();
         _observadoresNuevoUsuario = new LinkedList();
         _observadoresPerfilPelicula = new LinkedList();
-        
+        _peliculasMasComentadas = new LinkedList();
+        _peliculasMasValoradas = new LinkedList();
+        _peliculasNovedades = new LinkedList();
         
         
         modelo = new Modelo();
@@ -125,6 +129,13 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
     
     public DetallesPelicula getDetallesPelicula(Pelicula p){
         return modelo.getDetallesPelicula(p);
+    }
+    
+    public List<Pelicula> getPeliculasMasValoradas(){
+        if (_peliculasMasValoradas.isEmpty()){
+            _peliculasMasValoradas = modelo.getPeliculasMasValoradas();
+        }
+        return _peliculasMasValoradas;
     }
     
 }
