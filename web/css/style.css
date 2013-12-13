@@ -59,6 +59,11 @@ textarea {
 .text-right {
 	text-align:right;
 }
+
+h1 {
+	font-size:20px;
+}
+
 h2 {
 	font-size:10px;
 	color:#f2a223;
@@ -67,7 +72,10 @@ h2 {
 h3 {
 	font-size:14px;
 	color:#fff;
-	font-weight:bold;
+        display: table-cell;
+        vertical-align: bottom;
+        position:relative;
+        
 }
 h4 {
 	font-size:14px;
@@ -279,6 +287,10 @@ h1#logo a {
 	height:214px;
 	position:relative;
 }
+.movie-list-image img {
+	width:97px;
+	height:137px;
+}
 .movie-image img {
 	width:152px;
 	height:214px;
@@ -477,4 +489,90 @@ h1#logo a {
     height: 100px;
     width: 200px;
     box-shadow: 0 0 4px rgba(0,0,0,.3);
+}
+
+.rating{
+	width:80px;
+	height:16px;
+	margin:0 0 20px 0;
+	padding:0;
+	list-style:none;
+	clear:both;
+	position:relative;
+	background: url(images/star-matrix.gif) no-repeat 0 0;
+}
+/* add these classes to the ul to effect the change to the correct number of stars */
+.nostar {background-position:0 0}
+.onestar {background-position:0 -96px}
+.twostar {background-position:0 -112px}
+.threestar {background-position:0 -128px}
+.fourstar {background-position:0 -144px}
+.fivestar {background-position:0 -160px}
+ul.rating li {
+	cursor: pointer;
+ /*ie5 mac doesn't like it if the list is floated\*/
+	float:left;
+	/* end hide*/
+	text-indent:-999em;
+}
+ul.rating li a {
+	position:absolute;
+	left:0;
+	top:0;
+	width:16px;
+	height:16px;
+	text-decoration:none;
+	z-index: 200;
+}
+ul.rating li.one a {left:0}
+ul.rating li.two a {left:16px;}
+ul.rating li.three a {left:32px;}
+ul.rating li.four a {left:48px;}
+ul.rating li.five a {left:64px;}
+ul.rating li a:hover {
+	z-index:2;
+	width:80px;
+	height:16px;
+	overflow:hidden;
+	left:0;	
+	background: url(images/star-matrix.gif) no-repeat 0 0
+}
+ul.rating li.one a:hover {background-position:0 -96px;}
+ul.rating li.two a:hover {background-position:0 -112px;}
+ul.rating li.three a:hover {background-position:0 -128px}
+ul.rating li.four a:hover {background-position:0 -144px}
+ul.rating li.five a:hover {background-position:0 -160px}
+
+.puntuacion{
+	width:50px;
+	height:50px;
+	margin:0 0 20px 0;        
+	background: url(images/puntuacion.jpg) no-repeat 0 0;
+}
+/* add these classes to the ul to effect the change to the correct number of stars */
+.rojo {background-position:0 0}
+.amarillo {background-position:0 -170px}
+.verde {background-position:0 -340px}
+.naranja {background-position:0 -510px}
+.azul {background-position:0 -680px}
+
+.valor-puntuacion{
+        color: #fafafa;
+        font-size: 30px;
+}
+
+.decimal{
+    padding-left: 5px;
+    padding-top: 6px;
+}
+
+.entero{
+    padding-left: 17px;
+    padding-top: 6px;
+}
+
+.comentario{
+ 	width:50px;
+	height:50px;
+    background: url(images/comentario.png)
 }
