@@ -136,7 +136,7 @@
 
 
                         <!-- Segunda fila-->
-                        <tr style="padding-top: 20px"/>
+                        <tr style="padding-right: 20px"/>
                         <tr> 
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
