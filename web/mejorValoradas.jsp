@@ -22,8 +22,6 @@
             for (Pelicula p : masValoradas) {
                 detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
             }
-
-
         %>
 
 
@@ -82,24 +80,26 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(0).getPoster()%>"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(0).getId() %>" ><img src="<%= detalles.get(0).getPoster()%>"/></a>
                                 </div>
                             </td>
-                                 <td width="250px"><h1><%= masValoradas.get(0).getTitulo() + " (" + masValoradas.get(0).getAnno() + ")" %></h1>
+                                 <td width="250px">
+                                     
+                                     <h1><%= masValoradas.get(0).getTitulo() + " (" + masValoradas.get(0).getAnno() + ")" %></h1>
                                                 
                                 <% if( masValoradas.get(0).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(0).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(0).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(0).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(0).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(0).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(0).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(0).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(0).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -152,23 +152,23 @@
                             <td style="padding-right: 20px"/>
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(1).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(1).getId() %>" ><img src="<%= detalles.get(1).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(1).getTitulo() + " (" + masValoradas.get(1).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(1).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(1).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(1).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(1).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(1).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(1).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(1).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(1).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(1).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -228,23 +228,23 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(2).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(2).getId() %>" ><img src="<%= detalles.get(2).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(2).getTitulo() + " (" + masValoradas.get(2).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(2).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(2).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(2).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(2).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(2).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(2).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(2).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(2).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(2).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -297,23 +297,23 @@
                             <td style="padding-right: 20px"/>
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(3).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(3).getId() %>" ><img src="<%= detalles.get(3).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(3).getTitulo() + " (" + masValoradas.get(3).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(3).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(3).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(3).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(3).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(3).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(3).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(3).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(3).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(3).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -374,23 +374,23 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(4).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(4).getId() %>" ><img src="<%= detalles.get(4).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(4).getTitulo() + " (" + masValoradas.get(4).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(4).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(4).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(4).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(4).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(4).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(4).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(4).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(4).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(4).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -444,23 +444,23 @@
                             <td style="padding-right: 20px"/>
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(5).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(5).getId() %>" ><img src="<%= detalles.get(5).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(5).getTitulo() + " (" + masValoradas.get(5).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(5).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(5).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(5).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(5).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(5).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(5).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(5).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(5).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(5).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -521,23 +521,23 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(6).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(6).getId() %>" ><img src="<%= detalles.get(6).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(6).getTitulo() + " (" + masValoradas.get(6).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(6).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(6).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(6).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(6).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(6).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(6).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(6).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(6).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(6).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -590,23 +590,23 @@
                             <td style="padding-right: 20px"/>
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(7).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(7).getId() %>" ><img src="<%= detalles.get(7).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(7).getTitulo() + " (" + masValoradas.get(7).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(7).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(7).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(7).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(7).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(7).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(7).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(7).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(7).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(7).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -667,23 +667,23 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(8).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(8).getId() %>" ><img src="<%= detalles.get(8).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(8).getTitulo() + " (" + masValoradas.get(8).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(8).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                   if( masValoradas.get(8).getMedia() <=  2.0 ) { %>
+                                   if( masValoradas.get(8).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(8).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(8).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(8).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(8).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(8).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(8).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">
@@ -736,23 +736,23 @@
                             <td style="padding-right: 20px"/>
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <img src="<%= detalles.get(9).getPoster()%>" height="42" width="42"/>
+                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(9).getId() %>" ><img src="<%= detalles.get(9).getPoster()%>"/></a>
                                 </div>
                             </td>
                             <td width="250px"><h1><%= masValoradas.get(9).getTitulo() + " (" + masValoradas.get(9).getAnno() + ")" %></h1>
                                 <% if( masValoradas.get(9).getMedia() ==  0.0 ) { %>
                                     <ul class="rating nostar">
                                 <% } else {
-                                 if( masValoradas.get(9).getMedia() <=  2.0 ) { %>
+                                 if( masValoradas.get(9).getMedia() <  2.0 ) { %>
                                     <ul class="rating onestar">
                                 <% } else {
-                                    if( masValoradas.get(9).getMedia() <=  3.0 ) { %>
+                                    if( masValoradas.get(9).getMedia() <  3.0 ) { %>
                                         <ul class="rating twostar">
                                     <% } else {
-                                        if( masValoradas.get(9).getMedia() <=  4.0 ) { %>
+                                        if( masValoradas.get(9).getMedia() <  4.0 ) { %>
                                             <ul class="rating threestar">
                                         <% } else { 
-                                            if( masValoradas.get(9).getMedia() <=  5.0 ) { %>
+                                            if( masValoradas.get(9).getMedia() <  5.0 ) { %>
                                                 <ul class="rating fourstar">
                                             <% } else { %>
                                                 <ul class="rating fivestar">

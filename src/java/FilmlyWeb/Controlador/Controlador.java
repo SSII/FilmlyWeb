@@ -149,4 +149,9 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         idUsuario++;
     }
     
+    
+    public Pelicula getPelicula(int id){
+        return modelo.getPelicula(id);
+    }
+    
 }

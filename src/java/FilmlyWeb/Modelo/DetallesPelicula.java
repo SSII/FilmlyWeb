@@ -215,4 +215,26 @@ public class DetallesPelicula {
 
         return descripcion;
     }
+    
+    public String getGuionistas(){
+        String descripcion = "";
+        try{
+            URL url = new URL( getURL() );
+            BufferedReader in = new BufferedReader(
+            new InputStreamReader(url.openStream()));
+            
+            Scanner scanner = new Scanner(in.readLine());
+            scanner.useDelimiter("\"");
+
+            while( scanner.hasNext() ){
+               if( scanner.next().equals("Writer") ){
+                   scanner.next();
+                   descripcion = scanner.next();
+               }
+            }
+
+        }catch(Exception ex){} 
+
+        return descripcion;
+    }
 }
