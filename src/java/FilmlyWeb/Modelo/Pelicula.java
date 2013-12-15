@@ -30,15 +30,18 @@ public class Pelicula implements Serializable {
     private int _id;
     @OneToMany(targetEntity=Valoracion.class, cascade=CascadeType.ALL, mappedBy="_pelicula")
     private List<Valoracion> _valoraciones;
+    @Column(name="media")
+    private float _media;
     
     public Pelicula() {
     }
 
-    public Pelicula(String _titulo, int _anno, int _id, List<Valoracion> _valoraciones) {
+    public Pelicula(String _titulo, int _anno, int _id, List<Valoracion> _valoraciones, float _media) {
         this._titulo = _titulo;
         this._anno = _anno;
         this._id = _id;
         this._valoraciones = _valoraciones;
+        this._media = _media;
     }
 
     
@@ -82,6 +85,29 @@ public class Pelicula implements Serializable {
         _valoraciones.add(v);
     }
     
+     public float getValoracionMedia(){
+        float nota = 0;
+        
+        for (Valoracion valoracion : _valoraciones) {
+            nota += valoracion.getPuntuacion();
+        }
+        
+        if( _valoraciones.isEmpty() ){
+            return 0;
+        }
+        
+        return (float) Math.round( nota/_valoraciones.size() * 10 )/10;
+    }
+
+    public float getMedia() {
+        return _media;
+    }
+
+    public void setMedia(float media) {
+        this._media = media;
+    }
+     
+     
     
 }
 

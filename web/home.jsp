@@ -10,7 +10,7 @@
 <!-- START PAGE SOURCE -->
 <%@page import="FilmlyWeb.Controlador.Controlador" %>
 
-<% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre(); 
+<% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
    int nvaloraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size();
 %>
 
@@ -52,7 +52,7 @@
       <ul>
         <li><a href="recomendaciones.jsp">Mis recomendaciones</a></li>
         <li><a href="#">Mis valoraciones</a></li>
-        <li><a href="#">Mejor valoradas</a></li>
+        <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
         <li><a href="#">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
       </ul>

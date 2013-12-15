@@ -69,7 +69,22 @@ public class Modelo {
     }
     
     public void anadirUsuario( Usuario usuario ){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+                
+        Query q = em.createNativeQuery("INSERT INTO usuarios VALUES(?,?,?,?,?)");
+        q.setParameter(1, usuario.getId());
+        q.setParameter(2, usuario.getNombre());
+        q.setParameter(3, usuario.getNick());
+        q.setParameter(4, usuario.getPass());
+        q.setParameter(5, usuario.getEmail());
         
+        em.getTransaction().begin();
+        q.executeUpdate();
+        em.getTransaction().commit();
+        
+        usuarioLogueado = usuario;
+        
+        notificarCambioUsuarioLogueado();
     }
     
     public List<Pelicula> buscaPelicula( Filtro filtro ){
@@ -133,10 +148,19 @@ public class Modelo {
         return detalles;
     }
     
-    public List<Pelicula> getPeliculasMasValoradas(){
+    public List<Pelicula> getPeliculasMasValoradas(int offset){
         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
-        Query q = em.createNativeQuery("select * from peliculas order by media desc limit 10", Pelicula.class);
-        
+        //Query q = em.createNativeQuery("select * from peliculas order by media desc, titulo asc limit 10 offset :o", Pelicula.class);
+        Query q = em.createNativeQuery("select * from peliculas where detalles=true order by media desc, titulo asc limit 10 offset :o", Pelicula.class);
+        q.setParameter("o", offset);
+              
         return q.getResultList();
+    }
+    
+    public int obtenerUltimoID(){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from usuarios order by id desc", Usuario.class);
+        
+        return ((Usuario) q.getResultList().get(0)).getId() + 1;
     }
 }

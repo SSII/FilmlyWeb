@@ -26,6 +26,7 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
     List<Pelicula> _peliculasMasValoradas;
     List<Pelicula> _peliculasMasComentadas;
     List<Pelicula> _peliculasNovedades;
+    int idUsuario;
     
     static Controlador instancia = null;
     
@@ -45,6 +46,7 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         
         modelo.registrarObservadorCambioUsuarioLogueado(this);
         
+        idUsuario = modelo.obtenerUltimoID();
     }
     
     public static Controlador getInstancia(){
@@ -131,11 +133,20 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return modelo.getDetallesPelicula(p);
     }
     
-    public List<Pelicula> getPeliculasMasValoradas(){
-        if (_peliculasMasValoradas.isEmpty()){
-            _peliculasMasValoradas = modelo.getPeliculasMasValoradas();
-        }
+    public List<Pelicula> getPeliculasMasValoradas(int offset){
+            _peliculasMasValoradas = modelo.getPeliculasMasValoradas(offset);
+       
         return _peliculasMasValoradas;
+    }
+    
+    public void anadirUsuario(String nombre, String nick, String claveCodificada, String email){
+        
+        System.out.println("NICK: " + nick);
+        System.out.println("ID: " + idUsuario);
+        
+        modelo.anadirUsuario( new Usuario(nombre, nick, claveCodificada, email, idUsuario));
+        
+        idUsuario++;
     }
     
 }

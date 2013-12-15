@@ -1,3 +1,4 @@
+<%@page import="FilmlyWeb.Controlador.Controlador"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -54,7 +55,7 @@
                         <table border="0" align="center">
                             <tr>
                                 <td>
-                                    <form action="" method="post">
+                                    <form action="AnadirUsuario" method="post">
                                         <div id='textarea' class='outerDiv'>
                                             <input type="text" name="name" required maxlength="70 "value="Nombre y apellidos" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
                                                    onclick="if(this.value=='Nombre y apellidos'){ this.value=''; this.style.color='#000000';}" 

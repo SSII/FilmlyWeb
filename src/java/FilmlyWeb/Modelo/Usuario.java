@@ -26,7 +26,7 @@ import org.hibernate.annotations.FetchMode;
 public class Usuario implements Serializable {
     @Id
     @Column(name="id")
-    private String _id;
+    private int _id;
     @Column(name="nombre")
     String _nombre;
     @Column(name="nick")
@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String _nombre, String _nick, String _pass, String _email, String _id) {
+    public Usuario(String _nombre, String _nick, String _pass, String _email, int _id) {
         this._nombre = _nombre;
         this._nick = _nick;
         this._pass = _pass;
@@ -82,11 +82,11 @@ public class Usuario implements Serializable {
         this._email = _email;
     }
 
-    public String getId() {
+    public int getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(int _id) {
         this._id = _id;
     }
     
