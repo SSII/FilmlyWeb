@@ -55,7 +55,7 @@
                         <table border="0" align="center">
                             <tr>
                                 <td>
-                                    <form action="AnadirUsuario" method="post">
+                                    <form action="anadirUsuario.jsp" method="post">
                                         <div id='textarea' class='outerDiv'>
                                             <input type="text" name="name" required maxlength="70 "value="Nombre y apellidos" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
                                                    onclick="if(this.value=='Nombre y apellidos'){ this.value=''; this.style.color='#000000';}" 
