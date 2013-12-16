@@ -17,12 +17,12 @@
         <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
     </head>
     <body>
-  
-        <%  int idPelicula = Integer.parseInt( request.getParameter("id") );
+
+        <%  int idPelicula = Integer.parseInt(request.getParameter("id"));
             Pelicula p = Controlador.getInstancia().getPelicula(idPelicula);
-            DetallesPelicula detalles = Controlador.getInstancia().getDetallesPelicula(p);    
+            DetallesPelicula detalles = Controlador.getInstancia().getDetallesPelicula(p);
         %>
-            
+
         <div id="shell">
             <div id="header">
                 <h1 id="logo"><a href="home.jsp">MovieHunter</a></h1>
@@ -34,11 +34,11 @@
                         <li><a class="rss" href="#">rss</a></li>
                     </ul>
                 </div>
-                
+
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-                
+
                 <div id="navigation">
                     <ul>
                         <li>
@@ -50,7 +50,7 @@
 
                     </ul>
                 </div>
-                        
+
                 <% } else { %>
 
                 <div id="navigation">
@@ -80,8 +80,8 @@
 
                     </ul>
                 </div>
-                
-                <% } %>                
+
+                <% }%>                
 
                 <div id="cssBusqueda">
                     <div id="search">
@@ -98,7 +98,7 @@
                         <li><a href="#">Mis recomendaciones</a></li>
                         <li><a href="#">Mis valoraciones</a></li>
                         <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
-                        <li><a href="#">Más comentadas</a></li>
+                        <li><a href="masComentadas.jsp?index=0">Más comentadas</a></li>
                         <li><a href="#">Novedades</a></li>
                     </ul>
                 </div>
@@ -108,52 +108,98 @@
 
             <div align="center" id="sub-navigation">
                 <br/>
-               <table>
-            <tr>
-                <td rowspan="6"> <img height="300" src="<%= detalles.getPoster() %>"/> </td>
-                
-                <td> <%= detalles.getTitulo() %> ( <%= detalles.getAnho() %> ) </td>
-                
-                <td rowspan="3"> VALORACION </td>
-                
-            </tr>
-            
-            <tr>
-                <td> <b>Duración: </b> <%= detalles.getDuracion() %> </td>
-            </tr>
-            
-            <tr>
-                <td> <b>Géneros: </b> <%= detalles.getGenero() %> </td>
-            </tr>
-            
-            <tr>
-                <td> <b>Director: </b> <%= detalles.getDirector() %> </td>
-            </tr>
-            
-            <tr>
-                <td> <b>Actores: </b> <%= detalles.getActores() %> </td>
-            </tr>
-            
-            <tr>
-                <td> <b>Guionistas: </b> <%= detalles.getGuionistas() %> </td>
-            </tr>
+                <table>
+                    <tr>
+                        <td rowspan="6"> <img height="300" src="<%= detalles.getPoster()%>"/> </td>
+
+                        <td> <%= detalles.getTitulo()%> ( <%= detalles.getAnho()%> ) </td>
+
+                        <td rowspan="5"> 
+
+                            <% if (p.getMedia() <= 2.0) { %>
+                            <div class="puntuacion rojo">
+                                <% } else { %>
+                                <% if (p.getMedia() <= 3.0) { %>
+                                <div class="puntuacion naranja">
+                                    <% } else { %>
+                                    <% if (p.getMedia() <= 4.0) { %>
+                                    <div class="puntuacion amarillo">
+                                        <% } else { %>
+                                        <% if (p.getMedia() <= 5.0) { %>
+                                        <div class="puntuacion verde">
+                                            <% } else { %>
+                                            <div class="puntuacion azul">
+                                            <% }
+                                            }
+                                        }
+                                    }%>
+                                    
+                            <div class="valor-puntuacion decimal">
+                                <%= p.getMedia()%>
+                            </div>
+                        </div>
+                            
+                        <p> <%= p.getValoraciones().size() %> votos </p>
                         
-            <tr>
-                <td colspan="2">  <b>Descripción: </b> <%= detalles.getDescipcion() %> </td>
-            </tr>
-              
-        </table>
-                   
+                        <% if( Controlador.getInstancia().getUsuarioLogueado() == null ){ %>
                         
-                  
-            </div>
+                        <p> Identifícate o <a href="registro.jsp">regístrate</a></p>
+                        <p> para valorar la película </p>
+                        
+                        <% } else { %>
+                        
+                        <br/>
+                        <p> Valora la película </p>
+                        <ul class="rating">
+                            <li class="one"><a></a></li>
+                            <li class="two"><a></a></li>
+                            <li class="three"><a></a></li>
+                            <li class="four"><a></a></li>
+                            <li class="five"><a></a></li>
+                        </ul>
+                       
+                        <% } %>
+
+                        </td>
+
+                        </tr>
+
+                        <tr>
+                            <td> <b>Duración: </b> <%= detalles.getDuracion()%> </td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Géneros: </b> <%= detalles.getGenero()%> </td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Director: </b> <%= detalles.getDirector()%> </td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Actores: </b> <%= detalles.getActores()%> </td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Guionistas: </b> <%= detalles.getGuionistas()%> </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">  <b>Descripción: </b> <%= detalles.getDescipcion()%> </td>
+                        </tr>
+
+                        </table>
 
 
-            <div id="footer">
-                <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-                <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
-                <div style="clear:both;"></div>
-            </div>
-        </div>      
-    </body>
-</html>
+
+                    </div>
+
+
+                    <div id="footer">
+                        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+                        <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>      
+                </body>
+                </html>
