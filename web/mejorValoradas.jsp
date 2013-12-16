@@ -27,12 +27,12 @@
 
         <div id="shell">
             <div id="header">
-                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                
 
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-
+                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -100,7 +100,7 @@
                 </div>
 
                 <% }%>
-
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
                 <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
@@ -115,9 +115,9 @@
                                                            }" />
                         </form>
                     </div>
-
-
                 </div>
+                
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
 
                     <ul class="dashboard">
                         <li><a href="#">MIS RECOMENDACIONES</a></li>
@@ -126,6 +126,17 @@
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                         <li><a href="#">NOVEDADES</a></li>
                     </ul>
+                
+                <% } else { %>
+                
+                <ul class="dashboard">
+                        <li><a href="mejorValoradas.jsp.jsp?index=0">MEJOR VALORADAS</a></li>
+                        <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                        <li><a href="#">NOVEDADES</a></li>
+                </ul>
+                
+                <% } %>
+                
             </div>
 
             <!--Lista de peliculas -->    
