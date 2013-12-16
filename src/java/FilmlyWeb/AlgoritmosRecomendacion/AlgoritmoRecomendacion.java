@@ -14,7 +14,7 @@ import java.util.List;
 public interface AlgoritmoRecomendacion {
     
     /** Algoritmo de predicción a implementar */
-    public abstract float prediccion();
+    public abstract double prediccion();
     
     /** Media de todas la valoraciones hechas por el Usuario */
     public abstract float mediaUsuario();

@@ -6,9 +6,21 @@
 
 package FilmlyWeb.Modelo;
 
+import FilmlyWeb.AlgoritmosRecomendacion.AlgoritmoRecomendacion;
+import FilmlyWeb.AlgoritmosRecomendacion.KNN;
+import FilmlyWeb.AlgoritmosRecomendacion.WeigthedSum;
+import FilmlyWeb.Modelo.MapSort.ValueComparator;
 import FilmlyWeb.Persistencia.GestorPersistencia;
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -168,12 +180,86 @@ public class Modelo {
         return q.getResultList();
     }
     
-    
+    public List<Pelicula> getPeliculasNovedosas(int offset){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from peliculas where detalles=true order by anho desc, titulo asc limit 10 offset :o", Pelicula.class);
+        q.setParameter("o", offset);
+              
+        return q.getResultList();
+    } 
     
     public int obtenerUltimoID(){
         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
         Query q = em.createNativeQuery("select * from usuarios order by id desc", Usuario.class);
         
         return ((Usuario) q.getResultList().get(0)).getId() + 1;
+    }
+    
+    public Map<Pelicula,Double> obtenerRecomendaciones(){
+        AlgoritmoRecomendacion algoritmo = new WeigthedSum(false, null, null, 1, null, 8);
+        
+        Map<Pelicula, Double> unsortMap = new HashMap<Pelicula, Double>();
+
+        
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from usuarios", Usuario.class);
+        List<Usuario> usuariosTotales = q.getResultList();
+
+        KNN knn = new KNN( usuariosTotales, usuarioLogueado, 20, 1);
+        List<Usuario> vecinos = knn.evaluar();
+        
+        List<Pelicula> peliculasRecomendables = getPeliculas(vecinos);
+        
+        
+        for( Pelicula p : peliculasRecomendables ){
+            algoritmo.setParametros(1, vecinos, p, usuarioLogueado, 8);
+            unsortMap.put(p, algoritmo.prediccion() );
+        }
+       
+        Map<Pelicula, Double> sortedMap = sortByComparator(unsortMap);
+
+        return sortedMap;
+    }
+    
+    private List<Pelicula> getPeliculas(List<Usuario> usuarios){
+        List<Pelicula> resultado = new LinkedList<Pelicula>();
+        
+        for (Usuario u : usuarios) {
+            for (Pelicula p : u.getPeliculasValoradas() ) {
+                if( !resultado.contains(p) ){
+                    resultado.add(p);
+                }
+            }
+        }
+        
+        for(Pelicula p : usuarioLogueado.getPeliculasValoradas()){
+            if( resultado.contains(p) ){
+                resultado.remove(p);
+            }
+        }
+        
+        return resultado;
+    }
+    
+    private static Map sortByComparator(Map unsortMap) {
+ 
+            List list = new LinkedList(unsortMap.entrySet());
+
+            // sort list based on comparator
+            Collections.sort(list, new Comparator() {
+                    public int compare(Object o1, Object o2) {
+                            return ((Comparable) ((Map.Entry) (o2)).getValue())
+                                   .compareTo(((Map.Entry) (o1)).getValue());
+                    }
+            });
+
+            // put sorted list into map again
+            //LinkedHashMap make sure order in which keys were inserted
+            Map sortedMap = new LinkedHashMap();
+            for (Iterator it = list.iterator(); it.hasNext();) {
+                    Map.Entry entry = (Map.Entry) it.next();
+                    sortedMap.put(entry.getKey(), entry.getValue());
+            }
+            return sortedMap;
     }
 }

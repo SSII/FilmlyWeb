@@ -88,7 +88,7 @@ public class WeigthedSum implements AlgoritmoRecomendacion {
     }
 
     @Override
-    public float prediccion() {
+    public double prediccion() {
         float num = 0, den = 0;
         
         /* Sumatoria de la similitud de todos los usuarios que han votado la Pelicula
