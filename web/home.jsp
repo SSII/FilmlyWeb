@@ -108,7 +108,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> 
+                                <span class="comments"><%= masValoradas.get(0).getValoraciones().size() %></span> 
                             </div>
                         </div>
                         <div class="movie">
@@ -142,7 +142,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masValoradas.get(1).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 3</span></span> <a href="#"><img src="<%= detalles.get(2).getPoster() %>" alt="" /></a> </div>
@@ -175,7 +175,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masValoradas.get(2).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">VALKYRIE</span></span> <a href="#"><img src="<%= detalles.get(3).getPoster() %>" alt="" /></a> </div>
@@ -208,7 +208,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masValoradas.get(3).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">GLADIATOR</span></span> <a href="#"><img src="<%= detalles.get(4).getPoster() %>" alt="" /></a> </div>
@@ -241,7 +241,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masValoradas.get(4).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie last">
                             <div class="movie-image"> <span class="play"><span class="name">ICE AGE</span></span> <a href="#"><img src="<%= detalles.get(5).getPoster() %>" alt="" /></a> </div>
@@ -274,7 +274,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masValoradas.get(5).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -325,7 +325,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(0).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">MAGNETO</span></span> <a href="#"><img src="<%= detalles.get(1).getPoster() %>" alt="" /></a> </div>
@@ -358,7 +358,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(1).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">KUNG FU PANDA</span></span> <a href="#"><img src="<%= detalles.get(2).getPoster() %>" alt="" /></a> </div>
@@ -391,7 +391,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(2).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">EAGLE EYE</span></span> <a href="#"><img src="<%= detalles.get(3).getPoster() %>" alt="" /></a> </div>
@@ -424,7 +424,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(3).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">NARNIA</span></span> <a href="#"><img src="<%= detalles.get(7).getPoster() %>" alt="" /></a> </div>
@@ -457,7 +457,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(4).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie last">
                             <div class="movie-image"> <span class="play"><span class="name">ANGELS &amp; DEMONS</span></span> <a href="#"><img src="<%= detalles.get(5).getPoster() %>" alt="" /></a> </div>
@@ -490,7 +490,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=novedades.get(5).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -540,7 +540,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(0).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span> <a href="#"><img src="<%= detalles.get(1).getPoster() %>" alt="" /></a> </div>
@@ -573,7 +573,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(1).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">MIRRORS</span></span> <a href="#"><img src="<%= detalles.get(2).getPoster() %>" alt="" /></a> </div>
@@ -606,7 +606,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(2).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">THE KINGDOM</span></span> <a href="#"><img src="<%= detalles.get(3).getPoster() %>" alt="" /></a> </div>
@@ -639,7 +639,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(3).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">MOTIVES</span></span> <a href="#"><img src="<%= detalles.get(4).getPoster() %>" alt="" /></a> </div>
@@ -672,7 +672,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(4).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie last">
                             <div class="movie-image"> <span class="play"><span class="name">THE PRESTIGE</span></span> <a href="#"><img src="<%= detalles.get(5).getPoster() %>" alt="" /></a> </div>
@@ -705,7 +705,7 @@
                                                         <li class="five"></li>
                                                     </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
-                                <span class="comments">12</span> </div>
+                                <span class="comments"><%=masComentadas.get(5).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="cl">&nbsp;</div>
                     </div>
