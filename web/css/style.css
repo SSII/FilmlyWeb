@@ -368,13 +368,14 @@ h1#logo a {
     text-indent:-4000px;
 }
 .comments {
-    padding-left:12px;
-    float:right;
+    position: relative;
+    top: 3px;
+    left:38px;
 }
 .img-comments {
     position: relative;
-    top: 0px;
-    left: 115px;
+    top: 6px;
+    left: 35px;
 }
 .num-comments {
    position: relative;
@@ -516,7 +517,13 @@ h1#logo a {
     text-decoration:none;
 }
 .botonLogin:hover {
-    background-color:#378de5;
+    color: #fff;
+    border-bottom: 0px solid #CFDCE8;
+    background-color: #dce6ef;
+    background-image: -moz-linear-gradient(#ee6363, #ee6363);
+    background-image: -webkit-linear-gradient(#ee6363, #ee6363);
+    background-image: linear-gradient(#cc3232, #ee6363);
+    background-repeat: repeat-x;
 }
 .botonLogin:active {
     position:relative;
@@ -609,7 +616,7 @@ li {
 
 .rating{
     width:80px;
-    height:16px;
+    height:16px; 
     margin:0 0 20px 0;
     padding:0;
     list-style:none;

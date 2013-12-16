@@ -1,3 +1,7 @@
+<%@page import="FilmlyWeb.Modelo.DetallesPelicula"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.List"%>
+<%@page import="FilmlyWeb.Modelo.Pelicula"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -14,6 +18,12 @@
 
         <% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
             int nvaloraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size();
+            List<Pelicula> masValoradas = Controlador.getInstancia().getPeliculasMasValoradas(0);
+            List<DetallesPelicula> detalles = new LinkedList();
+
+            for (Pelicula p : masValoradas) {
+                detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
+            }
         %>
 
 
@@ -71,17 +81,38 @@
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">X-MAN</span></span> <a href="#"><img src="css/images/movie1.jpg" alt="" /></a> </div>
-                            <div class="rating">
-                                
-                                <div class="stars">
-                                    <div class="stars-in"> </div>
-                                </div>
+                            <% if (masValoradas.get(0).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (masValoradas.get(0).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (masValoradas.get(0).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (masValoradas.get(0).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (masValoradas.get(0).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
                                 <img src="css/images/minicomentario.png" class="img-comments" style="width: 10px; height: 9px;"></img> </div>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 2</span></span> <a href="#"><img src="css/images/movie2.jpg" alt="" /></a> </div>
                             <div class="rating">
-                                
                                 <div class="stars">
                                     <div class="stars-in"> </div>
                                 </div>
