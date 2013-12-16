@@ -11,93 +11,146 @@
             <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
     </head>
     <body>
-        <!-- START PAGE SOURCE -->
         <div id="shell">
             <div id="header">
                 <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
-                <div class="social"> <span>Síguenos en:</span>
-                    <ul>
-                        <li><a class="twitter" href="#">twitter</a></li>
-                        <li><a class="facebook" href="#">facebook</a></li>
-                        <li><a class="vimeo" href="#">vimeo</a></li>
-                        <li><a class="rss" href="#">rss</a></li>
-                    </ul>
-                </div>
                 <div id="navigation">
                     <ul>
-                        <li><a class="active" href="#">HOME</a></li>
-                        <li><a href="#">NEWS</a></li>
-                        <li><a href="#">IN THEATERS</a></li>
-                        <li><a href="#">COMING SOON</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                        <li><a href="#">ADVERTISE</a></li>
+                        <form action="login.jsp" method="post" accept-charset="utf-8">
+                            <li>
+                                <div id="cssUsuarios">
+                                    <input type="text" name="CajaUsuario"  value="Usuario" id="search-field" class="blink search-field" 
+                                           style="border:0px; height:21px; width:130px; font-size:15px; color:#9c9c9c" 
+                                           onFocus="if (this.value == 'Usuario') {
+                                                       this.value = '';
+                                                       this.style.color = '#000000';
+                                                   }" 
+                                           onblur="if (this.value == '') {
+                                                       this.value = 'Usuario';
+                                                       this.style.color = '#9c9c9c'
+                                                   }"  />
+                                </div>
+                            </li>
+                            <div id="cssPassword">
+                                <input type="text" name="CajaPass" id="search-field" value="Contraseña" class="blink search-field" 
+                                       style="border:0px; height:21px; width:130px; font-size:15px; color:#9c9c9c" 
+                                       onFocus="if (this.value == 'Contraseña') {
+                                                   this.type = 'password';
+                                                   this.value = '';
+                                                   this.style.color = '#000000';
+                                               }" 
+                                       onblur="if (this.value == '') {
+                                                   this.type = 'text';
+                                                   this.value = 'Contraseña';
+                                                   this.style.color = '#9c9c9c'
+                                               }"/>
+                            </div>
+                            <li>
+                                <div id="cssLogin">
+                                    <input type="submit" name="BotonLogin" value="Login" class="botonLogin"  />
+
+                                </div>
+                            </li>
+                        </form>
+
+
+
+                        <li>
+                            <div id="cssRegistro">
+                                <a href="registro.jsp">Regístrate</a>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
-                <div id="sub-navigation">
-                    <ul>
-                        <li><a href="#">MEJOR VALORADAS</a></li>
-                        <li><a href="#">MÁS COMENTADAS</a></li>
-                        <li><a href="#">NOVEDADES</a></li>
-                    </ul>
+
+                <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
-                            <label for="search-field">SEARCH</label>
-                            <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
-                            <input type="submit" value="GO!" class="search-button" />
+                            <input type="text"   name="search field" value="Busca película..." id="search-field" class="blink search-field"  />
                         </form>
                     </div>
+
+
                 </div>
+                <ul class="dashboard">
+                    <li><a href="#">MEJOR VALORADAS</a></li>
+                    <li><a href="#">MÁS COMENTADAS</a></li>
+                    <li><a href="#">NOVEDADES</a></li>
+
+                </ul>
             </div>
-            <div>
-                <div>
-                    <div align="center" id="sub-navigation">
-                        <br>
-                        <table border="0" align="center">
-                            <tr>
-                                <td>
-                                    <form action="anadirUsuario.jsp" method="post">
-                                        <div id='textarea' class='outerDiv'>
-                                            <input type="text" name="name" required maxlength="70 "value="Nombre y apellidos" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
-                                                   onclick="if(this.value=='Nombre y apellidos'){ this.value=''; this.style.color='#000000';}" 
-                                                   onblur="if(this.value==''){ this.value='Nombre y apellidos'; this.style.color='#9c9c9c' }" />
+            <div align="center" id="content-registro">
+                <br>
+                    <table border="0" align="center">
+                        <tr>
+                            <td>
+                                <form action="anadirUsuario.jsp" method="post">
+                                    <div id='textarea'>
+                                        <input type="text" name="name" class='caja-texto' required maxlength="70" value="Nombre y apellidos" style="height:30px; width:250px; font-size:15px; color:#9c9c9c" 
+                                               onfocus="if (this.value == 'Nombre y apellidos') {
+                                                           this.value = '';
+                                                           this.style.color = '#000000';
+                                                       }" 
+                                               onblur="if (this.value == '') {
+                                                           this.value = 'Nombre y apellidos';
+                                                           this.style.color = '#9c9c9c'
+                                                       }" />
+                                    </div>
+                                    <div id='textarea'>
+                                        <input type="text" class='caja-texto' name="username" required maxlength="20" value="Nombre de usuario" style="height:30px; width:250px; font-size:15px; color:#9c9c9c" 
+                                               onfocus="if (this.value == 'Nombre de usuario') {
+                                                           this.value = '';
+                                                           this.style.color = '#000000';
+                                                       }" 
+                                               onblur="if (this.value == '') {
+                                                           this.value = 'Nombre de usuario';
+                                                           this.style.color = '#9c9c9c'
+                                                       }"/>
+                                    </div>
+                                    <br>
+                                        <div id='textarea'>
+                                            <input type="text" class='caja-texto' name="password" required maxlength="20" value="Contraseña" style="height:30px; width:250px; font-size:15px; color:#9c9c9c" 
+                                                   onfocus="if (this.value == 'Contraseña') {
+                                                               this.type = 'password';
+                                                               this.value = '';
+                                                               this.style.color = '#000000';
+                                                           }" 
+                                                   onblur="if (this.value == '') {
+                                                               this.type = 'text';
+                                                               this.value = 'Contraseña';
+                                                               this.style.color = '#9c9c9c'
+                                                           }" />
                                         </div>
                                         <br>
-                                        <div id='textarea' class='outerDivS'>
-                                            <input type="text" name="username" required maxlength="20" value="Nombre de usuario" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
-                                                   onclick="if(this.value=='Nombre de usuario'){ this.value=''; this.style.color='#000000';}" 
-                                                   onblur="if(this.value==''){ this.value='Nombre de usuario'; this.style.color='#9c9c9c' }"/>
-                                        </div>
-                                        <br>
-                                        <div id='textarea' class='outerDiv' >
-                                            <input type="text" name="password" required maxlength="20" value="Contraseña" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
-                                                   onclick="if(this.value=='Contraseña'){ this.type='password'; this.value=''; this.style.color='#000000';}" 
-                                                   onblur="if(this.value==''){this.type='text'; this.value='Contraseña'; this.style.color='#9c9c9c' }" />
-                                        </div>
+                                            <div id='textarea'>
+                                                <input type="email" class='caja-texto' name="email" required maxlength="50" value="Correo electrónico" style="height:30px; width:250px; font-size:15px; color:#9c9c9c" 
+                                                       onfocus="if (this.value == 'Correo electrónico') {
+                                                                   this.value = '';
+                                                                   this.style.color = '#000000';
+                                                               }" 
+                                                       onblur="if (this.value == '') {
+                                                                   this.value = 'Correo electrónico';
+                                                                   this.style.color = '#9c9c9c'
+                                                               }" />
+                                            </div>
                                             <br>
-                                        <div id='textarea' class='outerDiv'>
-                                            <input type="email" name="email" required maxlength="50" value="Correo electrónico" style="height:30px; width:200px; font-size:15px; color:#9c9c9c" 
-                                                   onclick="if(this.value=='Correo electrónico'){ this.value=''; this.style.color='#000000';}" 
-                                                   onblur="if(this.value==''){ this.value='Correo electrónico'; this.style.color='#9c9c9c' }" />
-                                        </div>
-                                                <br>
-                                        <div id='submit' class='outerDiv' align="right">
-                                            <input type="submit" value="Crea mi cuenta" class ='myButton'/>
-                                        </div>
-                                    </form>
-                                </td>
-                                <td width="300"><img align="right" src="images/batman-5.jpg" alt="some_text" width="200" height="200"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>           
-            </div>
+                                                <div id='submit' class='outerDiv' align="right">
+                                                    <input type="submit" value="Crea mi cuenta" class ='botonRegistro'/>
+                                                </div>
+                                                </form>
+                                                </td>
+                                                <td width="300"><img align="right" src="images/batman-5.jpg" alt="some_text" width="200" height="200"></td>
+                                                </tr>
+                                                </table>
+                                                </div>
 
 
-            <div id="footer">
-                <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
-                <div style="clear:both;"></div>
-            </div>
-        </div>
-        <!-- END PAGE SOURCE -->
-    </body>
-</html>
+                                                <div id="footer">
+                                                    <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
+                                                    <div style="clear:both;"></div>
+                                                </div>
+                                                </div>
+                                                <!-- END PAGE SOURCE -->
+                                                </body>
+                                                </html>
