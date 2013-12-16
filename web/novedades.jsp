@@ -16,10 +16,10 @@
         <%@page import="FilmlyWeb.Controlador.Controlador" %>
 
         <%  int offset = Integer.parseInt(request.getParameter("index"));
-            List<Pelicula> masValoradas = Controlador.getInstancia().getPeliculasMasValoradas(offset);
+            List<Pelicula> novedades = Controlador.getInstancia().getPeliculasNovedosas(offset);
             List<DetallesPelicula> detalles = new LinkedList();
 
-            for (Pelicula p : masValoradas) {
+            for (Pelicula p : novedades) {
                 detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
             }
         %>
@@ -141,26 +141,26 @@
                             <!-- Pelicula 1 -->
                             <td rowspan="2"> 
                                 <div class="movie-list-image"> 
-                                    <a href="perfilPelicula.jsp?id=<%= masValoradas.get(0).getId()%>" ><img src="<%= detalles.get(0).getPoster()%>" class="image-poster"/></a>
+                                    <a href="perfilPelicula.jsp?id=<%= novedades.get(0).getId()%>" ><img src="<%= detalles.get(0).getPoster()%>" class="image-poster"/></a>
                                 </div>
                             </td>
                             <td width="250px">
 
-                                <h1 style="color: #000"><%= masValoradas.get(0).getTitulo() + " (" + masValoradas.get(0).getAnno() + ")"%></h1>
+                                <h1 style="color: #000"><%= novedades.get(0).getTitulo() + " (" + novedades.get(0).getAnno() + ")"%></h1>
 
-                                <% if (masValoradas.get(0).getMedia() == 0.0) { %>
+                                <% if (novedades.get(0).getMedia() == 0.0) { %>
                                 <ul class="rating nostar">
                                     <% } else {
-                                        if (masValoradas.get(0).getMedia() < 2.0) { %>
+                                        if (novedades.get(0).getMedia() < 2.0) { %>
                                     <ul class="rating onestar">
                                         <% } else {
-                                            if (masValoradas.get(0).getMedia() < 3.0) { %>
+                                            if (novedades.get(0).getMedia() < 3.0) { %>
                                         <ul class="rating twostar">
                                             <% } else {
-                                                if (masValoradas.get(0).getMedia() < 4.0) { %>
+                                                if (novedades.get(0).getMedia() < 4.0) { %>
                                             <ul class="rating threestar">
                                                 <% } else {
-                                                    if (masValoradas.get(0).getMedia() < 5.0) { %>
+                                                    if (novedades.get(0).getMedia() < 5.0) { %>
                                                 <ul class="rating fourstar">
                                                     <% } else { %>
                                                     <ul class="rating fivestar">
@@ -182,16 +182,16 @@
                                                     </td>
                                                     <td style="padding-right: 50px"/>
                                                     <td rowspan="2" style="padding-bottom: 50px">
-                                                        <% if (masValoradas.get(0).getMedia() <= 2.0) { %>
+                                                        <% if (novedades.get(0).getMedia() <= 2.0) { %>
                                                         <div class="puntuacion rojo">
                                                             <% } else {
-                                                                if (masValoradas.get(0).getMedia() <= 3.0) { %>
+                                                                if (novedades.get(0).getMedia() <= 3.0) { %>
                                                             <div class="puntuacion naranja">
                                                                 <% } else {
-                                                                    if (masValoradas.get(0).getMedia() <= 4.0) { %>
+                                                                    if (novedades.get(0).getMedia() <= 4.0) { %>
                                                                 <div class="puntuacion amarillo">
                                                                     <% } else {
-                                                                        if (masValoradas.get(0).getMedia() <= 5.0) { %>
+                                                                        if (novedades.get(0).getMedia() <= 5.0) { %>
                                                                     <div class="puntuacion verde">
                                                                         <% } else { %>
                                                                         <div class="puntuacion azul">
@@ -200,12 +200,12 @@
                                                                                     }
                                                                                 }%>
                                                                             <div class="valor-puntuacion decimal">
-                                                                                <%= masValoradas.get(0).getMedia()%>
+                                                                                <%= novedades.get(0).getMedia()%>
                                                                             </div>
                                                                         </div>
                                                                         <div>
                                                                             <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                            <%= masValoradas.get(0).getValoraciones().size()%>
+                                                                            <%= novedades.get(0).getValoraciones().size()%>
                                                                         </div>
                                                                         </td>
 
@@ -213,23 +213,23 @@
                                                                         <td style="padding-right: 20px"/>
                                                                         <td rowspan="2"> 
                                                                             <div class="movie-list-image"> 
-                                                                                <a href="perfilPelicula.jsp?id=<%= masValoradas.get(1).getId()%>" ><img src="<%= detalles.get(1).getPoster()%>" class="image-poster"/></a>
+                                                                                <a href="perfilPelicula.jsp?id=<%= novedades.get(1).getId()%>" ><img src="<%= detalles.get(1).getPoster()%>" class="image-poster"/></a>
                                                                             </div>
                                                                         </td>
-                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(1).getTitulo() + " (" + masValoradas.get(1).getAnno() + ")"%></h1>
-                                                                                <% if (masValoradas.get(1).getMedia() == 0.0) { %>
+                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(1).getTitulo() + " (" + novedades.get(1).getAnno() + ")"%></h1>
+                                                                                <% if (novedades.get(1).getMedia() == 0.0) { %>
                                                                             <ul class="rating nostar">
                                                                                 <% } else {
-                                                                                    if (masValoradas.get(1).getMedia() < 2.0) { %>
+                                                                                    if (novedades.get(1).getMedia() < 2.0) { %>
                                                                                 <ul class="rating onestar">
                                                                                     <% } else {
-                                                                                        if (masValoradas.get(1).getMedia() < 3.0) { %>
+                                                                                        if (novedades.get(1).getMedia() < 3.0) { %>
                                                                                     <ul class="rating twostar">
                                                                                         <% } else {
-                                                                                            if (masValoradas.get(1).getMedia() < 4.0) { %>
+                                                                                            if (novedades.get(1).getMedia() < 4.0) { %>
                                                                                         <ul class="rating threestar">
                                                                                             <% } else {
-                                                                                                if (masValoradas.get(1).getMedia() < 5.0) { %>
+                                                                                                if (novedades.get(1).getMedia() < 5.0) { %>
                                                                                             <ul class="rating fourstar">
                                                                                                 <% } else { %>
                                                                                                 <ul class="rating fivestar">
@@ -251,16 +251,16 @@
                                                                                                 </td>
                                                                                                 <td style="padding-right: 50px"/>
                                                                                                 <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                    <% if (masValoradas.get(1).getMedia() <= 2.0) { %>
+                                                                                                    <% if (novedades.get(1).getMedia() <= 2.0) { %>
                                                                                                     <div class="puntuacion rojo">
                                                                                                         <% } else {
-                                                                                                            if (masValoradas.get(1).getMedia() <= 3.0) { %>
+                                                                                                            if (novedades.get(1).getMedia() <= 3.0) { %>
                                                                                                         <div class="puntuacion naranja">
                                                                                                             <% } else {
-                                                                                                                if (masValoradas.get(1).getMedia() <= 4.0) { %>
+                                                                                                                if (novedades.get(1).getMedia() <= 4.0) { %>
                                                                                                             <div class="puntuacion amarillo">
                                                                                                                 <% } else {
-                                                                                                                    if (masValoradas.get(1).getMedia() <= 5.0) { %>
+                                                                                                                    if (novedades.get(1).getMedia() <= 5.0) { %>
                                                                                                                 <div class="puntuacion verde">
                                                                                                                     <% } else { %>
                                                                                                                     <div class="puntuacion azul">
@@ -269,12 +269,12 @@
                                                                                                                                 }
                                                                                                                             }%>
                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                            <%= masValoradas.get(1).getMedia()%>
+                                                                                                                            <%= novedades.get(1).getMedia()%>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                     <div>
                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                        <%= masValoradas.get(1).getValoraciones().size()%>
+                                                                                                                        <%= novedades.get(1).getValoraciones().size()%>
                                                                                                                     </div>
                                                                                                                     </td>
 
@@ -289,23 +289,23 @@
                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                         <td rowspan="2"> 
                                                                                                                             <div class="movie-list-image"> 
-                                                                                                                                <a href="perfilPelicula.jsp?id=<%= masValoradas.get(2).getId()%>" ><img src="<%= detalles.get(2).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                <a href="perfilPelicula.jsp?id=<%= novedades.get(2).getId()%>" ><img src="<%= detalles.get(2).getPoster()%>" class="image-poster"/></a>
                                                                                                                             </div>
                                                                                                                         </td>
-                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(2).getTitulo() + " (" + masValoradas.get(2).getAnno() + ")"%></h1>
-                                                                                                                                <% if (masValoradas.get(2).getMedia() == 0.0) { %>
+                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(2).getTitulo() + " (" + novedades.get(2).getAnno() + ")"%></h1>
+                                                                                                                                <% if (novedades.get(2).getMedia() == 0.0) { %>
                                                                                                                             <ul class="rating nostar">
                                                                                                                                 <% } else {
-                                                                                                                                    if (masValoradas.get(2).getMedia() < 2.0) { %>
+                                                                                                                                    if (novedades.get(2).getMedia() < 2.0) { %>
                                                                                                                                 <ul class="rating onestar">
                                                                                                                                     <% } else {
-                                                                                                                                        if (masValoradas.get(2).getMedia() < 3.0) { %>
+                                                                                                                                        if (novedades.get(2).getMedia() < 3.0) { %>
                                                                                                                                     <ul class="rating twostar">
                                                                                                                                         <% } else {
-                                                                                                                                            if (masValoradas.get(2).getMedia() < 4.0) { %>
+                                                                                                                                            if (novedades.get(2).getMedia() < 4.0) { %>
                                                                                                                                         <ul class="rating threestar">
                                                                                                                                             <% } else {
-                                                                                                                                                if (masValoradas.get(2).getMedia() < 5.0) { %>
+                                                                                                                                                if (novedades.get(2).getMedia() < 5.0) { %>
                                                                                                                                             <ul class="rating fourstar">
                                                                                                                                                 <% } else { %>
                                                                                                                                                 <ul class="rating fivestar">
@@ -327,16 +327,16 @@
                                                                                                                                                 </td>
                                                                                                                                                 <td style="padding-right: 50px"/>
                                                                                                                                                 <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                    <% if (masValoradas.get(2).getMedia() <= 2.0) { %>
+                                                                                                                                                    <% if (novedades.get(2).getMedia() <= 2.0) { %>
                                                                                                                                                     <div class="puntuacion rojo">
                                                                                                                                                         <% } else {
-                                                                                                                                                            if (masValoradas.get(2).getMedia() <= 3.0) { %>
+                                                                                                                                                            if (novedades.get(2).getMedia() <= 3.0) { %>
                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                             <% } else {
-                                                                                                                                                                if (masValoradas.get(2).getMedia() <= 4.0) { %>
+                                                                                                                                                                if (novedades.get(2).getMedia() <= 4.0) { %>
                                                                                                                                                             <div class="puntuacion amarillo">
                                                                                                                                                                 <% } else {
-                                                                                                                                                                    if (masValoradas.get(2).getMedia() <= 5.0) { %>
+                                                                                                                                                                    if (novedades.get(2).getMedia() <= 5.0) { %>
                                                                                                                                                                 <div class="puntuacion verde">
                                                                                                                                                                     <% } else { %>
                                                                                                                                                                     <div class="puntuacion azul">
@@ -345,12 +345,12 @@
                                                                                                                                                                                 }
                                                                                                                                                                             }%>
                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                            <%= masValoradas.get(2).getMedia()%>
+                                                                                                                                                                            <%= novedades.get(2).getMedia()%>
                                                                                                                                                                         </div>
                                                                                                                                                                     </div>
                                                                                                                                                                     <div>
                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                        <%= masValoradas.get(2).getValoraciones().size()%>
+                                                                                                                                                                        <%= novedades.get(2).getValoraciones().size()%>
                                                                                                                                                                     </div>
                                                                                                                                                                     </td>
 
@@ -358,23 +358,23 @@
                                                                                                                                                                     <td style="padding-right: 20px"/>
                                                                                                                                                                     <td rowspan="2"> 
                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                            <a href="perfilPelicula.jsp?id=<%= masValoradas.get(3).getId()%>" ><img src="<%= detalles.get(3).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                            <a href="perfilPelicula.jsp?id=<%= novedades.get(3).getId()%>" ><img src="<%= detalles.get(3).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                         </div>
                                                                                                                                                                     </td>
-                                                                                                                                                                    <td width="250px"><h1 style="color: #000"><%= masValoradas.get(3).getTitulo() + " (" + masValoradas.get(3).getAnno() + ")"%></h1>
-                                                                                                                                                                            <% if (masValoradas.get(3).getMedia() == 0.0) { %>
+                                                                                                                                                                    <td width="250px"><h1 style="color: #000"><%= novedades.get(3).getTitulo() + " (" + novedades.get(3).getAnno() + ")"%></h1>
+                                                                                                                                                                            <% if (novedades.get(3).getMedia() == 0.0) { %>
                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                             <% } else {
-                                                                                                                                                                                if (masValoradas.get(3).getMedia() < 2.0) { %>
+                                                                                                                                                                                if (novedades.get(3).getMedia() < 2.0) { %>
                                                                                                                                                                             <ul class="rating onestar">
                                                                                                                                                                                 <% } else {
-                                                                                                                                                                                    if (masValoradas.get(3).getMedia() < 3.0) { %>
+                                                                                                                                                                                    if (novedades.get(3).getMedia() < 3.0) { %>
                                                                                                                                                                                 <ul class="rating twostar">
                                                                                                                                                                                     <% } else {
-                                                                                                                                                                                        if (masValoradas.get(3).getMedia() < 4.0) { %>
+                                                                                                                                                                                        if (novedades.get(3).getMedia() < 4.0) { %>
                                                                                                                                                                                     <ul class="rating threestar">
                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                            if (masValoradas.get(3).getMedia() < 5.0) { %>
+                                                                                                                                                                                            if (novedades.get(3).getMedia() < 5.0) { %>
                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                             <% } else { %>
                                                                                                                                                                                             <ul class="rating fivestar">
@@ -396,16 +396,16 @@
                                                                                                                                                                                             </td>
                                                                                                                                                                                             <td style="padding-right: 50px"/>
                                                                                                                                                                                             <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                <% if (masValoradas.get(3).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                <% if (novedades.get(3).getMedia() <= 2.0) { %>
                                                                                                                                                                                                 <div class="puntuacion rojo">
                                                                                                                                                                                                     <% } else {
-                                                                                                                                                                                                        if (masValoradas.get(3).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                        if (novedades.get(3).getMedia() <= 3.0) { %>
                                                                                                                                                                                                     <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(3).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(3).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(3).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(3).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -414,12 +414,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(3).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(3).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(3).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(3).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -435,23 +435,23 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(4).getId()%>" ><img src="<%= detalles.get(4).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(4).getId()%>" ><img src="<%= detalles.get(4).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(4).getTitulo() + " (" + masValoradas.get(4).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(4).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(4).getTitulo() + " (" + novedades.get(4).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(4).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -473,16 +473,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(4).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(4).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(4).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(4).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -491,13 +491,13 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(4).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(4).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(4).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(4).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -505,23 +505,23 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(5).getId()%>" ><img src="<%= detalles.get(5).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(5).getId()%>" ><img src="<%= detalles.get(5).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(5).getTitulo() + " (" + masValoradas.get(5).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(5).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(5).getTitulo() + " (" + novedades.get(5).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(5).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -543,16 +543,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(5).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(5).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(5).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(5).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -561,12 +561,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(5).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(5).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(5).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(5).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -582,23 +582,23 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(6).getId()%>" ><img src="<%= detalles.get(6).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(6).getId()%>" ><img src="<%= detalles.get(6).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(6).getTitulo() + " (" + masValoradas.get(6).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(6).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(6).getTitulo() + " (" + novedades.get(6).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(6).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -620,16 +620,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(6).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(6).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(6).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(6).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -638,12 +638,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(6).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(6).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(6).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(6).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -651,23 +651,23 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(7).getId()%>" ><img src="<%= detalles.get(7).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(7).getId()%>" ><img src="<%= detalles.get(7).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(7).getTitulo() + " (" + masValoradas.get(7).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(7).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(7).getTitulo() + " (" + novedades.get(7).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(7).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -689,16 +689,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(7).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(7).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(7).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(7).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -707,12 +707,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(7).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(7).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(7).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(7).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -728,23 +728,23 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(8).getId()%>" ><img src="<%= detalles.get(8).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(8).getId()%>" ><img src="<%= detalles.get(8).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(8).getTitulo() + " (" + masValoradas.get(8).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(8).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(8).getTitulo() + " (" + novedades.get(8).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(8).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -766,16 +766,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(8).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(8).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(8).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(8).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -784,12 +784,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(8).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(8).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(8).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(8).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -797,23 +797,23 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= masValoradas.get(9).getId()%>" ><img src="<%= detalles.get(9).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= novedades.get(9).getId()%>" ><img src="<%= detalles.get(9).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= masValoradas.get(9).getTitulo() + " (" + masValoradas.get(9).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (masValoradas.get(9).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= novedades.get(9).getTitulo() + " (" + novedades.get(9).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (novedades.get(9).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -835,16 +835,16 @@
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (masValoradas.get(9).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (novedades.get(9).getMedia() <= 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() <= 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masValoradas.get(9).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (novedades.get(9).getMedia() <= 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -853,12 +853,12 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                         }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= masValoradas.get(9).getMedia()%>
+                                                                                                                                                                                                        <%= novedades.get(9).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= masValoradas.get(9).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= novedades.get(9).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -869,13 +869,13 @@
 
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <p>                        
-                                                                                                                                                                                                        <a style="padding-right: 15px" href="mejorValoradas.jsp?index=<%
+                                                                                                                                                                                                        <a style="padding-right: 15px" href="novedades.jsp?index=<%
                                                                                                                                                                                                         if (request.getParameter("index").equals("0") || request.getParameter("index").equals("9")) {
                                                                                                                                                                                                         out.println(0);
                                                                                                                                                                                                         } else {
                                                                                                                                                                                                         out.println(Integer.parseInt(request.getParameter("index")) - 10);
                                                                                                                                                                                                         }%> "> Ver anteriores </a>
-                                                                                                                                                                                                        <a href="mejorValoradas.jsp?index=<%
+                                                                                                                                                                                                        <a href="novedades.jsp?index=<%
                                                                                                                                                                                                         if (request.getParameter("index").equals("0")) {
                                                                                                                                                                                                         out.println(9);
                                                                                                                                                                                                         } else {

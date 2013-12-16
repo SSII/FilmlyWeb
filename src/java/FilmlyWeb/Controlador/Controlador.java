@@ -9,6 +9,7 @@ package FilmlyWeb.Controlador;
 import FilmlyWeb.Modelo.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -145,6 +146,12 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return _peliculasMasComentadas;
     }
     
+    public List<Pelicula> getPeliculasNovedosas(int offset){
+        _peliculasNovedades = modelo.getPeliculasNovedosas(offset);
+       
+        return _peliculasNovedades;
+    }
+    
     public void anadirUsuario(String nombre, String nick, String claveCodificada, String email){
         
         System.out.println("NICK: " + nick);
@@ -160,4 +167,7 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return modelo.getPelicula(id);
     }
     
+    public Map<Pelicula,Double> obtenerRecomendaciones(){
+        return modelo.obtenerRecomendaciones();
+    }
 }
