@@ -32,7 +32,16 @@
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
+
+                    <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                
+                <% } else { %>
+                
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
+                
+                <% } %>
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -124,7 +133,7 @@
                     <ul class="dashboard">
                         <li><a href="#">MIS RECOMENDACIONES</a></li>
                         <li><a href="#">MIS VALORACIONES</a></li>
-                        <li><a href="mejorValoradas.jsp.jsp?index=0">MEJOR VALORADAS</a></li>
+                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                         <li><a href="#">NOVEDADES</a></li>
                     </ul>
@@ -132,7 +141,7 @@
                 <% } else { %>
                 
                 <ul class="dashboard">
-                        <li><a href="mejorValoradas.jsp.jsp?index=0">MEJOR VALORADAS</a></li>
+                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                         <li><a href="#">NOVEDADES</a></li>
                 </ul>
@@ -899,8 +908,7 @@
 
 
                                                                                                                                                                                                         <div id="footer">
-                                                                                                                                                                                                        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-                                                                                                                                                                                                        <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+                                                                                                                                                                                                        <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
                                                                                                                                                                                                         <div style="clear:both;"></div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>

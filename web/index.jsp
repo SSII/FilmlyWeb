@@ -742,17 +742,10 @@
                 </div>
 
                 <div id="footer">
-                    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-                    <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+                    <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
                     <div style="clear:both;"></div>
                 </div>
             </div>
-
-                <div id="footer">
-                    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-                    <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
-                    <div style="clear:both;"></div>
-                </div>
             </div>
             <!-- END PAGE SOURCE -->
     </body>
