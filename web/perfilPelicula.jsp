@@ -21,7 +21,7 @@
         <%  int idPelicula = Integer.parseInt( request.getParameter("id") );
             Pelicula p = Controlador.getInstancia().getPelicula(idPelicula);
             DetallesPelicula detalles = Controlador.getInstancia().getDetallesPelicula(p);    
-            %>
+        %>
             
         <div id="shell">
             <div id="header">
@@ -34,10 +34,15 @@
                         <li><a class="rss" href="#">rss</a></li>
                     </ul>
                 </div>
+                
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
+                        String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
+                %>
+                
                 <div id="navigation">
                     <ul>
                         <li>
-                            <p><%= "Bienvenido "%> </p>
+                            <p><%= "Bienvenido " + nombre%> </p>
                         </li>
                         <li>
                             <a href="logout.jsp">Cerrar sesión</a>
@@ -45,6 +50,38 @@
 
                     </ul>
                 </div>
+                        
+                <% } else { %>
+
+                <div id="navigation">
+                    <ul>
+                        <form action="login.jsp" method="post" accept-charset="utf-8">
+                            <li>
+                                <div id="cssUsuarios">
+                                    <input type="text" name="CajaUsuario" value="Usuario" id="search-field" class="blink search-field"  />
+                                </div>
+                            </li>
+                            <div id="cssPassword">
+                                <input type="password" name="CajaPass" id="search-field" class="blink search-field"/>
+                            </div>
+                            <li>
+                                <div id="cssLogin">
+                                    <input type="submit" name="BotonLogin" value="Login" id="search-field" class="blink search-field"  />
+
+                                </div>
+                            </li>
+                        </form>
+
+                        <li>
+                            <div id="cssRegistro">
+                                <a href="registro.jsp">Regístrate</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                
+                <% } %>                
 
                 <div id="cssBusqueda">
                     <div id="search">
@@ -60,7 +97,7 @@
                     <ul>
                         <li><a href="#">Mis recomendaciones</a></li>
                         <li><a href="#">Mis valoraciones</a></li>
-                        <li><a href="#">Mejor valoradas</a></li>
+                        <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
                         <li><a href="#">Más comentadas</a></li>
                         <li><a href="#">Novedades</a></li>
                     </ul>

@@ -139,6 +139,12 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return _peliculasMasValoradas;
     }
     
+    public List<Pelicula> getPeliculasMasComentadas(int offset){
+            _peliculasMasComentadas = modelo.getPeliculasMasComentadas(offset);
+       
+        return _peliculasMasComentadas;
+    }
+    
     public void anadirUsuario(String nombre, String nick, String claveCodificada, String email){
         
         System.out.println("NICK: " + nick);

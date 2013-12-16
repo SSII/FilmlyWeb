@@ -21,6 +21,8 @@
         <li><a class="rss" href="#">rss</a></li>
       </ul>
     </div>
+    
+    
     <div id="navigation">
       <ul>
           <form action="login.jsp" method="post" accept-charset="utf-8">
@@ -63,8 +65,8 @@
     
     <div id="sub-navigation">
       <ul>
-          <li><a href="mejorValoradas.jsp">Mejor valoradas</a></li>
-        <li><a href="#">Más comentadas</a></li>
+          <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
+        <li><a href="masComentadas.jsp?index=0">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
       </ul>
     </div>

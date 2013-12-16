@@ -53,7 +53,7 @@
         <li><a href="recomendaciones.jsp">Mis recomendaciones</a></li>
         <li><a href="#">Mis valoraciones</a></li>
         <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
-        <li><a href="#">Más comentadas</a></li>
+        <li><a href="masComentadas.jsp?index=0">Más comentadas</a></li>
         <li><a href="#">Novedades</a></li>
       </ul>
     </div>

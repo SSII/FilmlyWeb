@@ -154,12 +154,21 @@ public class Modelo {
     
     public List<Pelicula> getPeliculasMasValoradas(int offset){
         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
-        //Query q = em.createNativeQuery("select * from peliculas order by media desc, titulo asc limit 10 offset :o", Pelicula.class);
         Query q = em.createNativeQuery("select * from peliculas where detalles=true order by media desc, titulo asc limit 10 offset :o", Pelicula.class);
         q.setParameter("o", offset);
               
         return q.getResultList();
     }
+    
+    public List<Pelicula> getPeliculasMasComentadas(int offset){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from peliculas where detalles=true order by valoraciones desc, titulo asc limit 10 offset :o", Pelicula.class);
+        q.setParameter("o", offset);
+              
+        return q.getResultList();
+    }
+    
+    
     
     public int obtenerUltimoID(){
         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
