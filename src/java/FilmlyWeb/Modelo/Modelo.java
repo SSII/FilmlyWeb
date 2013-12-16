@@ -196,24 +196,30 @@ public class Modelo {
     }
     
     public Map<Pelicula,Double> obtenerRecomendaciones(){
+        double prediccion;
         AlgoritmoRecomendacion algoritmo = new WeigthedSum(false, null, null, 1, null, 8);
         
         Map<Pelicula, Double> unsortMap = new HashMap<Pelicula, Double>();
 
-        
         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
         Query q = em.createNativeQuery("select * from usuarios", Usuario.class);
         List<Usuario> usuariosTotales = q.getResultList();
 
         KNN knn = new KNN( usuariosTotales, usuarioLogueado, 20, 1);
-        List<Usuario> vecinos = knn.evaluar();
+        List<Usuario> vecinos = knn.evaluar();        
         
         List<Pelicula> peliculasRecomendables = getPeliculas(vecinos);
         
         
         for( Pelicula p : peliculasRecomendables ){
             algoritmo.setParametros(1, vecinos, p, usuarioLogueado, 8);
-            unsortMap.put(p, algoritmo.prediccion() );
+            prediccion = algoritmo.prediccion();
+            
+            if(prediccion > 5){
+                prediccion = 5;
+            }
+            
+            unsortMap.put(p, prediccion);
         }
        
         Map<Pelicula, Double> sortedMap = sortByComparator(unsortMap);
@@ -226,7 +232,7 @@ public class Modelo {
         
         for (Usuario u : usuarios) {
             for (Pelicula p : u.getPeliculasValoradas() ) {
-                if( !resultado.contains(p) ){
+                if( !resultado.contains(p) && p.isDetalles() ){
                     resultado.add(p);
                 }
             }

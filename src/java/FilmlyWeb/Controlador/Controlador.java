@@ -167,7 +167,14 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return modelo.getPelicula(id);
     }
     
-    public Map<Pelicula,Double> obtenerRecomendaciones(){
-        return modelo.obtenerRecomendaciones();
+    public List<Pelicula> obtenerRecomendaciones(){
+        List<Pelicula> recomendaciones = new LinkedList<Pelicula>( modelo.obtenerRecomendaciones().keySet() );
+        
+        
+        for (Pelicula pelicula : recomendaciones) {
+            System.out.println("PELICULA " + pelicula.getTitulo());
+        }
+        
+        return recomendaciones;
     }
 }

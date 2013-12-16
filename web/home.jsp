@@ -61,11 +61,11 @@
                 </div>
 
                 <ul class="dashboard">
-                    <li><a href="#">MIS RECOMENDACIONES</a></li>
+                    <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
                     <li><a href="#">MIS VALORACIONES</a></li>
                     <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                     <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
-                    <li><a href="#">NOVEDADES</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
 
 
                 </ul>

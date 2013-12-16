@@ -28,20 +28,21 @@
         <div id="shell">
             <div id="header">
                 
-
-                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
-                        String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
-                %>
-                
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
 
-                    <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
                 
                 <% } else { %>
                 
                 <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
                 
                 <% } %>
+
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
+                        String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
+                %>
+                
+               
                 
                 <div id="navigation-home">
                     <ul>
@@ -110,7 +111,6 @@
                 </div>
 
                 <% }%>
-                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
                 <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
@@ -130,11 +130,11 @@
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
 
                     <ul class="dashboard">
-                        <li><a href="#">MIS RECOMENDACIONES</a></li>
+                        <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
                         <li><a href="#">MIS VALORACIONES</a></li>
                         <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
-                        <li><a href="#">NOVEDADES</a></li>
+                        <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
                     </ul>
                 
                 <% } else { %>
@@ -142,7 +142,7 @@
                 <ul class="dashboard">
                         <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
-                        <li><a href="#">NOVEDADES</a></li>
+                        <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
                 </ul>
                 
                 <% } %>

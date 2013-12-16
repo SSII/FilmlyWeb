@@ -32,16 +32,19 @@ public class Pelicula implements Serializable {
     private List<Valoracion> _valoraciones;
     @Column(name="media")
     private float _media;
+    @Column(name="detalles")
+    private boolean _detalles;
     
     public Pelicula() {
     }
 
-    public Pelicula(String _titulo, int _anno, int _id, List<Valoracion> _valoraciones, float _media) {
+    public Pelicula(String _titulo, int _anno, int _id, List<Valoracion> _valoraciones, float _media, boolean _detalles) {
         this._titulo = _titulo;
         this._anno = _anno;
         this._id = _id;
         this._valoraciones = _valoraciones;
         this._media = _media;
+        this._detalles = _detalles;
     }
 
     
@@ -106,8 +109,15 @@ public class Pelicula implements Serializable {
     public void setMedia(float media) {
         this._media = media;
     }
-     
-     
+
+    public void setDetalles(boolean _detalles) {
+        this._detalles = _detalles;
+    }
+
+    public boolean isDetalles() {
+        return _detalles;
+    }
+    
     
 }
 
