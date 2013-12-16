@@ -62,12 +62,13 @@ textarea {
 }
 h2 {
     font-size:16px;
-    color:#f2a223;
+    color: #413e3e;
     font-weight:bold;
+    
 }
 h3 {
     font-size:14px;
-    color:#fff;
+    color: #787878;
     font-weight:bold;
 }
 h4 {
@@ -702,4 +703,9 @@ ul.rating li.five a:hover {background-position:0 -160px}
     border: solid;
     border-width: 1px;
     margin-bottom: 5px;
+}
+
+.image-poster {
+    width: 150px;
+    height: auto;
 }

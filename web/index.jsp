@@ -67,14 +67,22 @@
                 <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
-                            <input type="text"   name="search field" value="Busca película..." id="search-field" class="blink search-field"  />
+                            <input type="text"   name="search field" value="Busca una película..." id="search-field" class="blink search-field" 
+                                   onfocus="if (this.value == 'Busca una película...') {
+                                                               this.value = '';
+                                                               this.style.color = '#000000';
+                                                           }" 
+                                       onblur="if (this.value == '') {
+                                                               this.value = 'Busca una película...';
+                                                               this.style.color = '#9c9c9c'
+                                                           }" />
                         </form>
                     </div>
 
 
                 </div>
                     <ul class="dashboard">
-                        <li><a href="#">MEJOR VALORADAS</a></li>
+                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="#">MÁS COMENTADAS</a></li>
                         <li><a href="#">NOVEDADES</a></li>
                         
