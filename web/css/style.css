@@ -276,6 +276,7 @@ h1#logo a {
     height: 475px;
     border: 1px solid #413e3e;
     background-color: #ffffff;
+    background-image: url('css/images/fondo.png');
     
 
 }
