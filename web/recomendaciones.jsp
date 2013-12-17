@@ -39,12 +39,12 @@
 
         <div id="shell">
             <div id="header">
-                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
-
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-
+                
+               <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -60,6 +60,8 @@
 
 
                 <% } else { %>
+                
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
                     <ul>
@@ -131,13 +133,25 @@
 
                 </div>
 
-                    <ul class="dashboard">
-                        <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
-                        <li><a href="#">MIS VALORACIONES</a></li>
-                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
-                        <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
-                        <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
-                    </ul>
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
+
+                <ul class="dashboard">
+                    <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
+                    <li><a href="#">MIS VALORACIONES</a></li>
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% } else { %>
+
+                <ul class="dashboard">
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% }%>
             </div>
 
             <!--Lista de peliculas -->    
