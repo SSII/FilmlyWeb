@@ -81,10 +81,11 @@
                 </ul>
             </div>
             <div align="center" id="content-registro">
+                <div style="font-size: 50px"><p style="color: #000">¡Únete y encuentra tus películas favoritas!</p></div> 
                 <br>
-                    <table border="0" align="center">
+                    <table border="0" align="center" >
                         <tr>
-                            <td>
+                            <td style="padding-top: 10px">
                                 <form action="anadirUsuario.jsp" method="post">
                                     <div id='textarea'>
                                         <input type="text" name="name" class='caja-texto' required maxlength="70" value="Nombre y apellidos" style="height:30px; width:250px; font-size:15px; color:#9c9c9c" 
@@ -139,8 +140,8 @@
                                                     <input type="submit" value="Crea mi cuenta" class ='botonRegistro'/>
                                                 </div>
                                                 </form>
-                                                </td>
-                                                <td width="300"><img align="right" src="images/batman-5.jpg" alt="some_text" width="200" height="200"></td>
+                                                </td >
+                                                <td align="right" width="400" height="250" style="padding-left: 20px"><img align="right" src="css/images/fondo2.jpg" alt="" width="400" height="300"></td>
                                                 </tr>
                                                 </table>
                                                 </div>
