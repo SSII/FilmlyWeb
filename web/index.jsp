@@ -85,8 +85,8 @@
 
                 <div id="cssBusqueda">
                     <div id="search">
-                        <form action="#" method="get" accept-charset="utf-8">
-                            <input type="text" id="cajaBusqueda" name="cBusqueda" value="Busca una película..." class="blink search-field" 
+                        <form action="devuelvePelicula.jsp" method="get" accept-charset="utf-8">
+                            <input type="text" id="cajaBusqueda" name="busqueda"  value="Busca película..." class="blink search-field" 
                                    onfocus="if (this.value == 'Busca una película...') {
                                                this.value = '';
                                                this.style.color = '#000000';
