@@ -6,10 +6,23 @@
 
 package FilmlyWeb.Modelo;
 
+import java.util.Map;
+
 /**
  *
  * @author Pedro
  */
 public class Filtro {
+    
+    Map _mapa;
+    
+    
+    public Filtro(Map mapa){
+        _mapa = mapa;
+    }
+    
+    public Object getValor (String entrada){
+        return _mapa.get(entrada);
+    }
     
 }
