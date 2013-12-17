@@ -115,7 +115,18 @@ public class Modelo {
     }
     
     public void anadirValoracion( Valoracion v ){
+         EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+                
+        Query q = em.createNativeQuery("INSERT INTO valoraciones VALUES(?,?,?,?,?)");
+        q.setParameter(1, v.getUsuario().getId());
+        q.setParameter(2, v.getPelicula().getId());
+        q.setParameter(3, v.getPuntuacion());
+        q.setParameter(4, obtenerUltimoIDValoraciones());
+        q.setParameter(5, v.getComentario());
         
+        em.getTransaction().begin();
+        q.executeUpdate();
+        em.getTransaction().commit();       
     }
     
     public Usuario getUsuarioLogueado(){
@@ -200,6 +211,13 @@ public class Modelo {
         Query q = em.createNativeQuery("select * from usuarios order by id desc", Usuario.class);
         
         return ((Usuario) q.getResultList().get(0)).getId() + 1;
+    }
+    
+    public long obtenerUltimoIDValoraciones(){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from valoraciones order by _id desc", Valoracion.class);
+        
+        return ((Valoracion) q.getResultList().get(0)).getId() + 1;
     }
     
     public Map<Pelicula,Double> obtenerRecomendaciones(){

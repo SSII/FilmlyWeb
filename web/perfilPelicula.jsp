@@ -188,13 +188,13 @@
 
                                                     <br/>
                                                     <p> Valora la película </p>
-                                                    <div style="padding-left: 80px;" >
-                                                        <ul  class="rating">
-                                                            <li class="one"><a></a></li>
-                                                            <li class="two"><a></a></li>
-                                                            <li class="three"><a></a></li>
-                                                            <li class="four"><a></a></li>
-                                                            <li class="five"><a></a></li>
+                                                    <div style="position: relative; top: 0px; left: 70px;">
+                                                        <ul class="rating">
+                                                            <li class="one"><a href="emitirValoracion.jsp?rate=1&idPelicula=<%=idPelicula%>"></a></li>
+                                                            <li class="two"><a href="emitirValoracion.jsp?rate=2&idPelicula=<%=idPelicula%>"></a></li>
+                                                            <li class="three"><a href="emitirValoracion.jsp?rate=3&idPelicula=<%=idPelicula%>"></a></li>
+                                                            <li class="four"><a href="emitirValoracion.jsp?rate=4&idPelicula=<%=idPelicula%>"></a></li>
+                                                            <li class="five"><a href="emitirValoracion.jsp?rate=5&idPelicula=<%=idPelicula%>"></a></li>
                                                         </ul>
                                                     </div>
 
@@ -217,7 +217,7 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px;"> <b>Actores: </b> <%= detalles.getActores()%> </td>
+                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px; max-width: 5px"> <b>Actores: </b> <%= detalles.getActores()%> </td>
                                                     </tr>
 
                                                     <tr>

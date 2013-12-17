@@ -44,9 +44,11 @@ public class Valoracion implements Serializable {
     public Valoracion() {
     }
 
-    public Valoracion(int puntuacion, String comentario) {
+    public Valoracion(int puntuacion, String comentario, Usuario usuario, Pelicula pelicula) {
         this._puntuacion = puntuacion;
         this._comentario = comentario;
+        this._usuario = usuario;
+        this._pelicula = pelicula;
     }
 
     public Valoracion(int puntuacion) {
@@ -78,5 +80,11 @@ public class Valoracion implements Serializable {
         this._pelicula = _pelicula;
         _pelicula.addValoracion(this);
     }
+
+    public Long getId() {
+        return _id;
+    }
+    
+    
     
 }

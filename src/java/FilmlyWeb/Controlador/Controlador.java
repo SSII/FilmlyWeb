@@ -186,4 +186,8 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         
         return modelo.buscaPelicula(new Filtro(filtro));
     } 
+    
+    public void anadirValoracion(int rate, int idPelicula){
+        modelo.anadirValoracion(new Valoracion(rate, "", modelo.getUsuarioLogueado(), modelo.getPelicula(idPelicula)));
+    }
 }
