@@ -27,22 +27,12 @@
 
         <div id="shell">
             <div id="header">
-                
-                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
-
-                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
-                
-                <% } else { %>
-                
-                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
-                
-                <% } %>
 
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
                 
-               
+               <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
                 
                 <div id="navigation-home">
                     <ul>
@@ -59,6 +49,8 @@
 
 
                 <% } else { %>
+                
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
                     <ul>

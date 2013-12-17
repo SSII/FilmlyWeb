@@ -14,6 +14,7 @@
         <title>Filmly</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
         <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
     </head>
     <body>
@@ -25,52 +26,71 @@
 
         <div id="shell">
             <div id="header">
-                <h1 id="logo"><a href="home.jsp">MovieHunter</a></h1>
-                <div class="social"> <span>Síguenos en:</span>
-                    <ul>
-                        <li><a class="twitter" href="#">twitter</a></li>
-                        <li><a class="facebook" href="#">facebook</a></li>
-                        <li><a class="vimeo" href="#">vimeo</a></li>
-                        <li><a class="rss" href="#">rss</a></li>
-                    </ul>
-                </div>
 
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
 
-                <div id="navigation">
+                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+
+                <div id="navigation-home">
                     <ul>
-                        <li>
+                        <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
                             <p><%= "Bienvenido " + nombre%> </p>
                         </li>
-                        <li>
-                            <a href="logout.jsp">Cerrar sesión</a>
+                        <li style="display: table-cell">
+                            <a href="logout.jsp" style="color: #db2929">Cerrar sesión</a>
                         </li>
 
                     </ul>
                 </div>
 
+
+
                 <% } else { %>
+
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
                     <ul>
                         <form action="login.jsp" method="post" accept-charset="utf-8">
                             <li>
                                 <div id="cssUsuarios">
-                                    <input type="text" name="CajaUsuario" value="Usuario" id="search-field" class="blink search-field"  />
+                                    <input type="text" name="CajaUsuario"  value="Usuario" id="search-field" class="blink search-field" 
+                                           style="border:0px; height:21px; width:130px; font-size:15px; color:#9c9c9c" 
+                                           onfocus="if (this.value == 'Usuario') {
+                                                       this.value = '';
+                                                       this.style.color = '#000000';
+                                                   }" 
+                                           onblur="if (this.value == '') {
+                                                       this.value = 'Usuario';
+                                                       this.style.color = '#9c9c9c'
+                                                   }"  />
                                 </div>
                             </li>
                             <div id="cssPassword">
-                                <input type="password" name="CajaPass" id="search-field" class="blink search-field"/>
+                                <input type="text" name="CajaPass" id="search-field" value="Contraseña" class="blink search-field" 
+                                       style="border:0px; height:21px; width:130px; font-size:15px; color:#9c9c9c" 
+                                       onfocus="if (this.value == 'Contraseña') {
+                                                   this.type = 'password';
+                                                   this.value = '';
+                                                   this.style.color = '#000000';
+                                               }" 
+                                       onblur="if (this.value == '') {
+                                                   this.type = 'text';
+                                                   this.value = 'Contraseña';
+                                                   this.style.color = '#9c9c9c'
+                                               }"/>
                             </div>
                             <li>
                                 <div id="cssLogin">
-                                    <input type="submit" name="BotonLogin" value="Login" id="search-field" class="blink search-field"  />
+                                    <input type="submit" name="BotonLogin" value="Login" class="botonLogin"  />
 
                                 </div>
                             </li>
                         </form>
+
+
 
                         <li>
                             <div id="cssRegistro">
@@ -81,125 +101,149 @@
                     </ul>
                 </div>
 
-                <% }%>                
-
+                <% }%>
                 <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
-                            <input type="text" name="search field" value="Busca película..." id="search-field" class="blink search-field"  />
+                            <input type="text" name="search field" value="Busca una película..." id="search-field" class="blink search-field" 
+                                   onfocus="if (this.value == 'Busca una película...') {
+                                               this.value = '';
+                                               this.style.color = '#000000';
+                                           }" 
+                                   onblur="if (this.value == '') {
+                                               this.value = 'Busca una película...';
+                                               this.style.color = '#9c9c9c'
+                                           }" />
                         </form>
                     </div>
-
-
                 </div>
 
-                <div id="sub-navigation">
-                    <ul>
-                        <li><a href="#">Mis recomendaciones</a></li>
-                        <li><a href="#">Mis valoraciones</a></li>
-                        <li><a href="mejorValoradas.jsp?index=0">Mejor valoradas</a></li>
-                        <li><a href="masComentadas.jsp?index=0">Más comentadas</a></li>
-                        <li><a href="#">Novedades</a></li>
-                    </ul>
-                </div>
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
+
+                <ul class="dashboard">
+                    <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
+                    <li><a href="#">MIS VALORACIONES</a></li>
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% } else { %>
+
+                <ul class="dashboard">
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% }%>
+
             </div>
 
-            <!--Lista de peliculas -->    
+            <div id="main">
+                <div id="content">
 
-            <div align="center" id="sub-navigation">
-                <br/>
-                <table>
-                    <tr>
-                        <td rowspan="6"> <img height="300" src="<%= detalles.getPoster()%>"/> </td>
+                    <!--Lista de peliculas -->    
 
-                        <td> <%= detalles.getTitulo()%> ( <%= detalles.getAnho()%> ) </td>
+                    <div align="center" id="sub-navigation">
+                        <table border="1" style="padding-top: 35px; padding-left: 35px;">
+                            <tr>
+                                <td rowspan="7" align="center"> <img height="300" width="auto" src="<%= detalles.getPoster()%>"/> </td>
 
-                        <td rowspan="5"> 
+                                <td class="titulo-ficha"> <%= detalles.getTitulo()%> (<%= detalles.getAnho()%>) </td>
 
-                            <% if (p.getMedia() <= 2.0) { %>
-                            <div class="puntuacion rojo">
-                                <% } else { %>
-                                <% if (p.getMedia() <= 3.0) { %>
-                                <div class="puntuacion naranja">
-                                    <% } else { %>
-                                    <% if (p.getMedia() <= 4.0) { %>
-                                    <div class="puntuacion amarillo">
+                                <td rowspan="6" align="center"> 
+
+                                    <% if (p.getMedia() <= 2.0) { %>
+                                    <div class="puntuacion rojo">
                                         <% } else { %>
-                                        <% if (p.getMedia() <= 5.0) { %>
-                                        <div class="puntuacion verde">
+                                        <% if (p.getMedia() <= 3.0) { %>
+                                        <div class="puntuacion naranja">
                                             <% } else { %>
-                                            <div class="puntuacion azul">
-                                            <% }
-                                            }
-                                        }
-                                    }%>
-                                    
-                            <div class="valor-puntuacion decimal">
-                                <%= p.getMedia()%>
-                            </div>
-                        </div>
-                            
-                        <p> <%= p.getValoraciones().size() %> votos </p>
-                        
-                        <% if( Controlador.getInstancia().getUsuarioLogueado() == null ){ %>
-                        
-                        <p> Identifícate o <a href="registro.jsp">regístrate</a></p>
-                        <p> para valorar la película </p>
-                        
-                        <% } else { %>
-                        
-                        <br/>
-                        <p> Valora la película </p>
-                        <ul class="rating">
-                            <li class="one"><a></a></li>
-                            <li class="two"><a></a></li>
-                            <li class="three"><a></a></li>
-                            <li class="four"><a></a></li>
-                            <li class="five"><a></a></li>
-                        </ul>
-                       
-                        <% } %>
+                                            <% if (p.getMedia() <= 4.0) { %>
+                                            <div class="puntuacion amarillo">
+                                                <% } else { %>
+                                                <% if (p.getMedia() <= 5.0) { %>
+                                                <div class="puntuacion verde">
+                                                    <% } else { %>
+                                                    <div class="puntuacion azul">
+                                                        <% }
+                                                                    }
+                                                                }
+                                                            }%>
 
-                        </td>
+                                                        <div class="valor-puntuacion decimal">
+                                                            <%= p.getMedia()%>
+                                                        </div>
+                                                    </div>
 
-                        </tr>
+                                                    <p> <%= p.getValoraciones().size()%> votos </p>
 
-                        <tr>
-                            <td> <b>Duración: </b> <%= detalles.getDuracion()%> </td>
-                        </tr>
+                                                    <% if (Controlador.getInstancia().getUsuarioLogueado() == null) { %>
 
-                        <tr>
-                            <td> <b>Géneros: </b> <%= detalles.getGenero()%> </td>
-                        </tr>
+                                                    <p> Identifícate o <a href="registro.jsp">regístrate</a></p>
+                                                    <p> para valorar la película </p>
 
-                        <tr>
-                            <td> <b>Director: </b> <%= detalles.getDirector()%> </td>
-                        </tr>
+                                                    <% } else { %>
 
-                        <tr>
-                            <td> <b>Actores: </b> <%= detalles.getActores()%> </td>
-                        </tr>
+                                                    <br/>
+                                                    <p> Valora la película </p>
+                                                    <div style="padding-left: 80px;" >
+                                                        <ul  class="rating">
+                                                            <li class="one"><a></a></li>
+                                                            <li class="two"><a></a></li>
+                                                            <li class="three"><a></a></li>
+                                                            <li class="four"><a></a></li>
+                                                            <li class="five"><a></a></li>
+                                                        </ul>
+                                                    </div>
 
-                        <tr>
-                            <td> <b>Guionistas: </b> <%= detalles.getGuionistas()%> </td>
-                        </tr>
+                                                    <% }%>
 
-                        <tr>
-                            <td colspan="2">  <b>Descripción: </b> <%= detalles.getDescipcion()%> </td>
-                        </tr>
+                                                    </td>
 
-                        </table>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="font-size: 20px; color: #787878; padding-left: 10px;"> <b>Duración: </b> <%= detalles.getDuracion()%> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px;"> <b>Géneros: </b> <%= detalles.getGenero()%> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px;"> <b>Director: </b> <%= detalles.getDirector()%> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px;"> <b>Actores: </b> <%= detalles.getActores()%> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="font-size: 18px; color: #787878; padding-left: 10px;"> <b>Guionistas: </b> <%= detalles.getGuionistas()%> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" style="font-size: 18px; color: #787878; padding-left: 10px;">  <b>Descripción: </b> <%= detalles.getDescipcion()%> </td>
+                                                    </tr>
+
+                                                    </table>
 
 
 
-                    </div>
 
 
-                    <div id="footer">
-                        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-                        <p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
-                        <div style="clear:both;"></div>
-                    </div>
-                </div>      
-                </body>
-                </html>
+                                                </div>
+
+
+                                                <div id="footer">
+                                                    <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
+                                                    <div style="clear:both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    </body>
+                                    </html>

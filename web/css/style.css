@@ -716,3 +716,22 @@ ul.rating li.five a:hover {background-position:0 -160px}
     width: 150px;
     height: auto;
 }
+
+.image-ficha {
+    position: relative;
+    top: 30px;
+    left: 70px;
+}
+
+.titulo-ficha {
+    font-weight: bold;
+    color: #000;
+    font-size: 30px;
+    width: 450px;
+}
+
+.duracion-ficha {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}

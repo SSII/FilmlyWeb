@@ -33,15 +33,8 @@
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
                 
-                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
+                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
 
-                    <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
-                
-                <% } else { %>
-                
-                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
-                
-                <% } %>
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -57,6 +50,8 @@
 
 
                 <% } else { %>
+                
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
                     <ul>
@@ -109,7 +104,8 @@
                 </div>
 
                 <% }%>
-                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
+                
+
                 <div id="cssBusqueda">
                     <div id="search">
                         <form action="#" method="get" accept-charset="utf-8">
