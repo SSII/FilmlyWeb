@@ -100,7 +100,14 @@ public class Modelo {
     }
     
     public List<Pelicula> buscaPelicula( Filtro filtro ){
-        return null;
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        
+        String busqueda = (String)filtro.getValor("Pelicula");
+        Query q = em.createNativeQuery("select * from peliculas where titulo like :subcadena and detalles=true", Pelicula.class);
+        
+        q.setParameter("subcadena", "%" + busqueda + "%");
+        
+        return q.getResultList();
     }
     
     public Pelicula getDetallesPelicula( String id ){

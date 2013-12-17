@@ -146,7 +146,7 @@
                     <!--Lista de peliculas -->    
 
                     <div align="center" id="sub-navigation">
-                        <table border="1" style="padding-top: 35px; padding-left: 35px;">
+                        <table border="0" style="padding-top: 35px; padding-left: 35px;">
                             <tr>
                                 <td rowspan="7" align="center"> <img height="300" width="auto" src="<%= detalles.getPoster()%>"/> </td>
 

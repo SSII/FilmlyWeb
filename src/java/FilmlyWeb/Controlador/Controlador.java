@@ -7,6 +7,7 @@
 package FilmlyWeb.Controlador;
 
 import FilmlyWeb.Modelo.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -177,4 +178,12 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         
         return recomendaciones;
     }
+    
+    public List<Pelicula> buscaPelicula(String busqueda){
+        
+        Map<String, String> filtro = new HashMap();
+        filtro.put("Pelicula", busqueda);
+        
+        return modelo.buscaPelicula(new Filtro(filtro));
+    } 
 }

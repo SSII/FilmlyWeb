@@ -122,7 +122,7 @@
                     <ul class="dashboard">
                         <li><a href="#">MIS RECOMENDACIONES</a></li>
                         <li><a href="#">MIS VALORACIONES</a></li>
-                        <li><a href="mejorValoradas.jsp.jsp?index=0">MEJOR VALORADAS</a></li>
+                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                         <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                         <li><a href="#">NOVEDADES</a></li>
                     </ul>
