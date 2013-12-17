@@ -12,7 +12,7 @@
            List<Pelicula> lista = Controlador.getInstancia().buscaPelicula((String)request.getParameter("q"));
            
            for (int i=0; i<lista.size(); ++i){
-               out.println(lista.get(i).getTitulo());
+               out.println(lista.get(i).getTitulo() + " (" + lista.get(i).getAnno() + ")");
            }
        }
        

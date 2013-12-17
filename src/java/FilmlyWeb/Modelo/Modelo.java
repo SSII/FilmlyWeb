@@ -148,6 +148,14 @@ public class Modelo {
         return (Pelicula) q.getResultList().get(0);
     }
     
+    public Pelicula getPelicula(String titulo){
+        EntityManager em = GestorPersistencia.getInstancia().getEntityManager();
+        Query q = em.createNativeQuery("select * from peliculas where titulo=:titulo", Pelicula.class);
+        q.setParameter("titulo", titulo);
+        
+        return (Pelicula) q.getResultList().get(0);
+    }
+    
     public Valoracion getValoracion(Usuario u, Pelicula p){
         return null;
     }

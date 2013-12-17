@@ -1,8 +1,9 @@
 .ac_results {
     padding: 0px;
-    border: 1px solid #84a10b;
-    background-color: #84a10b;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
     overflow: hidden;
+    z-index: 100;
 }
 .ac_results ul {
     width: 100%;
@@ -10,14 +11,15 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    z-index: 100;
 }
 .ac_results li {
     margin: 0px;
     padding: 2px 5px;
     cursor: default;
     display: block;
-    color: #fff;
-    font-family:verdana;
+    color: #555;
+    font-family:'Baumans';
     /*
     if width will be 100% horizontal scrollbar will apear
     when scroll mode will be used
@@ -30,22 +32,24 @@
     */
     line-height: 16px;
     overflow: hidden;
+    z-index: 100;
 }
 
 .ac_odd {
-    background-color: #84a10b;
-    color: #ffffff;
+    background-color: #ffffff;
+     font-family:Arial;
 }
 .ac_over {
-    background-color: #5a6b13;
-    color: #ffffff;
+    background-color: #F5A9A9;
+    border: 1px solid #F5A9A9;
 }
 .input_text{
     font-family:Arial, Helvetica, sans-serif;
     font-size:12px;
-    border:1px solid #84a10b;
+    border:1px solid #000000;
     padding:2px;
     width:150px;
     color:#000;
     padding-left:17px;
+    z-index: 100;
 }

@@ -10,6 +10,15 @@
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
             <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+        <link rel="stylesheet" type="text/css" href="css/style.autocomplete.css" />
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+        <script src="js/jquery.autocomplete.js"></script>
+        <script>
+            jQuery(function() {
+                $("#cajaBusqueda").autocomplete("busqueda.jsp");
+            });
+        </script> 
+
     </head>
     <body>
         <!-- START PAGE SOURCE -->
@@ -105,16 +114,16 @@
                 <% }%>
                 <div id="cssBusqueda">
                     <div id="search">
-                        <form action="#" method="get" accept-charset="utf-8">
-                            <input type="text" name="search field" value="Busca una película..." id="search-field" class="blink search-field" 
+                        <form action="devuelvePelicula.jsp" method="get" accept-charset="utf-8">
+                            <input type="text" id="cajaBusqueda" name="busqueda"  value="Busca una película..." class="blink search-field" 
                                    onfocus="if (this.value == 'Busca una película...') {
-                                                               this.value = '';
-                                                               this.style.color = '#000000';
-                                                           }" 
-                                       onblur="if (this.value == '') {
-                                                               this.value = 'Busca una película...';
-                                                               this.style.color = '#9c9c9c'
-                                                           }" />
+                                               this.value = '';
+                                               this.style.color = '#000000';
+                                           }" 
+                                   onblur="if (this.value == '') {
+                                               this.value = 'Busca una película...';
+                                               this.style.color = '#9c9c9c'
+                                           }" />
                         </form>
                     </div>
                 </div>

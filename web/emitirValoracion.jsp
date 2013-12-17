@@ -20,9 +20,9 @@
             
             Controlador.getInstancia().anadirValoracion(rate, idPelicula);
             
-            
+            String id = String.valueOf(idPelicula);
        
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("perfilPelicula.jsp?id=" +id);
          %>
 
     </body>

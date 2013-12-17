@@ -168,6 +168,10 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
         return modelo.getPelicula(id);
     }
     
+    public Pelicula getPelicula(String titulo){
+        return modelo.getPelicula(titulo);
+    }
+    
     public List<Pelicula> obtenerRecomendaciones(){
         List<Pelicula> recomendaciones = new LinkedList<Pelicula>( modelo.obtenerRecomendaciones().keySet() );
         
