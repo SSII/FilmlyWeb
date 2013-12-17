@@ -126,7 +126,10 @@ public class Modelo {
         
         em.getTransaction().begin();
         q.executeUpdate();
-        em.getTransaction().commit();       
+        em.getTransaction().commit();  
+        
+        usuarioLogueado.addValoracion(v);
+        v.getPelicula().addValoracion(v);
     }
     
     public Usuario getUsuarioLogueado(){
@@ -256,6 +259,11 @@ public class Modelo {
         }
        
         Map<Pelicula, Double> sortedMap = sortByComparator(unsortMap);
+        for (Map.Entry<Pelicula, Double> entry : sortedMap.entrySet()) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+            
+        }
 
         return sortedMap;
     }
