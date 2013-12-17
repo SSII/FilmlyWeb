@@ -172,7 +172,7 @@
                                             <% if (p.getMedia() <= 4.0) { %>
                                             <div class="puntuacion amarillo">
                                                 <% } else { %>
-                                                <% if (p.getMedia() <= 5.0) { %>
+                                                <% if (p.getMedia() < 5.0) { %>
                                                 <div class="puntuacion verde">
                                                     <% } else { %>
                                                     <div class="puntuacion azul">

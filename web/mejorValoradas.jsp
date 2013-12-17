@@ -213,7 +213,7 @@
                                                                     if (masValoradas.get(0).getMedia() <= 4.0) { %>
                                                                 <div class="puntuacion amarillo">
                                                                     <% } else {
-                                                                        if (masValoradas.get(0).getMedia() <= 5.0) { %>
+                                                                        if (masValoradas.get(0).getMedia() < 5.0) { %>
                                                                     <div class="puntuacion verde">
                                                                         <% } else { %>
                                                                         <div class="puntuacion azul">
@@ -282,7 +282,7 @@
                                                                                                                 if (masValoradas.get(1).getMedia() <= 4.0) { %>
                                                                                                             <div class="puntuacion amarillo">
                                                                                                                 <% } else {
-                                                                                                                    if (masValoradas.get(1).getMedia() <= 5.0) { %>
+                                                                                                                    if (masValoradas.get(1).getMedia() < 5.0) { %>
                                                                                                                 <div class="puntuacion verde">
                                                                                                                     <% } else { %>
                                                                                                                     <div class="puntuacion azul">

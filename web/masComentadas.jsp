@@ -218,7 +218,7 @@
                                                                     if (masComentadas.get(0).getMedia() <= 4.0) { %>
                                                                 <div class="puntuacion amarillo">
                                                                     <% } else {
-                                                                        if (masComentadas.get(0).getMedia() <= 5.0) { %>
+                                                                        if (masComentadas.get(0).getMedia() < 5.0) { %>
                                                                     <div class="puntuacion verde">
                                                                         <% } else { %>
                                                                         <div class="puntuacion azul">
@@ -287,7 +287,7 @@
                                                                                                                 if (masComentadas.get(1).getMedia() <= 4.0) { %>
                                                                                                             <div class="puntuacion amarillo">
                                                                                                                 <% } else {
-                                                                                                                    if (masComentadas.get(1).getMedia() <= 5.0) { %>
+                                                                                                                    if (masComentadas.get(1).getMedia() < 5.0) { %>
                                                                                                                 <div class="puntuacion verde">
                                                                                                                     <% } else { %>
                                                                                                                     <div class="puntuacion azul">
@@ -363,7 +363,7 @@
                                                                                                                                                                 if (masComentadas.get(2).getMedia() <= 4.0) { %>
                                                                                                                                                             <div class="puntuacion amarillo">
                                                                                                                                                                 <% } else {
-                                                                                                                                                                    if (masComentadas.get(2).getMedia() <= 5.0) { %>
+                                                                                                                                                                    if (masComentadas.get(2).getMedia() < 5.0) { %>
                                                                                                                                                                 <div class="puntuacion verde">
                                                                                                                                                                     <% } else { %>
                                                                                                                                                                     <div class="puntuacion azul">
@@ -432,7 +432,7 @@
                                                                                                                                                                                                             if (masComentadas.get(3).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(3).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(3).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -509,7 +509,7 @@
                                                                                                                                                                                                             if (masComentadas.get(4).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(4).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(4).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -579,7 +579,7 @@
                                                                                                                                                                                                             if (masComentadas.get(5).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(5).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(5).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -656,7 +656,7 @@
                                                                                                                                                                                                             if (masComentadas.get(6).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(6).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(6).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -725,7 +725,7 @@
                                                                                                                                                                                                             if (masComentadas.get(7).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(7).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(7).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -802,7 +802,7 @@
                                                                                                                                                                                                             if (masComentadas.get(8).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(8).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(8).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -871,7 +871,7 @@
                                                                                                                                                                                                             if (masComentadas.get(9).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (masComentadas.get(9).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (masComentadas.get(9).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
