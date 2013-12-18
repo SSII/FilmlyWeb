@@ -31,6 +31,7 @@
         <%  int idPelicula = Integer.parseInt(request.getParameter("id"));
             Pelicula p = Controlador.getInstancia().getPelicula(idPelicula);
             DetallesPelicula detalles = Controlador.getInstancia().getDetallesPelicula(p);
+            float media = p.getValoracionMedia();
         %>
 
         <div id="shell">
@@ -163,16 +164,16 @@
 
                                 <td width="200" rowspan="6" align="center"> 
 
-                                    <% if (p.getMedia() <= 2.0) { %>
+                                    <% if (media <= 2.0) { %>
                                     <div class="puntuacion rojo">
                                         <% } else { %>
-                                        <% if (p.getMedia() <= 3.0) { %>
+                                        <% if (media <= 3.0) { %>
                                         <div class="puntuacion naranja">
                                             <% } else { %>
-                                            <% if (p.getMedia() <= 4.0) { %>
+                                            <% if (media <= 4.0) { %>
                                             <div class="puntuacion amarillo">
                                                 <% } else { %>
-                                                <% if (p.getMedia() < 5.0) { %>
+                                                <% if (media < 5.0) { %>
                                                 <div class="puntuacion verde">
                                                     <% } else { %>
                                                     <div class="puntuacion azul">
@@ -182,7 +183,7 @@
                                                             }%>
 
                                                         <div style="padding-right: 10px" class="valor-puntuacion decimal">
-                                                            <%= p.getMedia()%>
+                                                            <%= p.getValoracionMedia() %>
                                                         </div>
                                                     </div>
 
