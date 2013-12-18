@@ -118,19 +118,21 @@
                         <div class="movie">
                             <div class="movie-image">  <a href="perfilPelicula.jsp?id=<%= masValoradas.get(0).getId()%>" ><img src="<%= detalles.get(0).getPoster()%>" alt="" /></a> </div>
                             <div>
-                                <% if (masValoradas.get(0).getMedia() == 0.0) { %>
+                                <% float media = masValoradas.get(0).getValoracionMedia(); %>
+                                
+                                <% if (media == 0.0) { %>
                                 <ul class="rating nostar">
                                     <% } else {
-                                        if (masValoradas.get(0).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                     <ul class="rating onestar">
                                         <% } else {
-                                            if (masValoradas.get(0).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                         <ul class="rating twostar">
                                             <% } else {
-                                                if (masValoradas.get(0).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                             <ul class="rating threestar">
                                                 <% } else {
-                                                    if (masValoradas.get(0).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                 <ul class="rating fourstar">
                                                     <% } else { %>
                                                     <ul class="rating fivestar">
@@ -152,19 +154,21 @@
                                                     <div class="movie">
                                                         <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masValoradas.get(1).getId()%>" ><img src="<%= detalles.get(1).getPoster()%>" alt="" /></a> </div>
                                                         <div>
-                                                            <% if (masValoradas.get(1).getMedia() == 0.0) { %>
+                                                            <% media = masValoradas.get(1).getValoracionMedia(); %>
+                                                            
+                                                            <% if (media == 0.0) { %>
                                                             <ul class="rating nostar">
                                                                 <% } else {
-                                        if (masValoradas.get(1).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                 <ul class="rating onestar">
                                                                     <% } else {
-                                            if (masValoradas.get(1).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                     <ul class="rating twostar">
                                                                         <% } else {
-                                                if (masValoradas.get(1).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                         <ul class="rating threestar">
                                                                             <% } else {
-                                                    if (masValoradas.get(1).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                             <ul class="rating fourstar">
                                                                                 <% } else { %>
                                                                                 <ul class="rating fivestar">
@@ -185,19 +189,20 @@
                                                                                 <div class="movie">
                                                                                     <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masValoradas.get(2).getId()%>" ><img src="<%= detalles.get(2).getPoster()%>" alt="" /></a> </div>
                                                                                     <div>
-                                                                                        <% if (masValoradas.get(2).getMedia() == 0.0) { %>
+                                                                                        <% media = masValoradas.get(2).getValoracionMedia(); %>
+                                                                                        <% if (media == 0.0) { %>
                                                                                         <ul class="rating nostar">
                                                                                             <% } else {
-                                        if (masValoradas.get(2).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                             <ul class="rating onestar">
                                                                                                 <% } else {
-                                            if (masValoradas.get(2).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                 <ul class="rating twostar">
                                                                                                     <% } else {
-                                                if (masValoradas.get(2).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                     <ul class="rating threestar">
                                                                                                         <% } else {
-                                                    if (masValoradas.get(2).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                         <ul class="rating fourstar">
                                                                                                             <% } else { %>
                                                                                                             <ul class="rating fivestar">
@@ -218,19 +223,20 @@
                                                                                                             <div class="movie">
                                                                                                                 <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masValoradas.get(3).getId()%>" ><img src="<%= detalles.get(3).getPoster()%>" alt="" /></a> </div>
                                                                                                                 <div>
-                                                                                                                    <% if (masValoradas.get(3).getMedia() == 0.0) { %>
+                                                                                                                    <% media = masValoradas.get(3).getValoracionMedia(); %>
+                                                                                                                    <% if (media == 0.0) { %>
                                                                                                                     <ul class="rating nostar">
                                                                                                                         <% } else {
-                                        if (masValoradas.get(3).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                         <ul class="rating onestar">
                                                                                                                             <% } else {
-                                            if (masValoradas.get(3).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                             <ul class="rating twostar">
                                                                                                                                 <% } else {
-                                                if (masValoradas.get(3).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                 <ul class="rating threestar">
                                                                                                                                     <% } else {
-                                                    if (masValoradas.get(3).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                     <ul class="rating fourstar">
                                                                                                                                         <% } else { %>
                                                                                                                                         <ul class="rating fivestar">
@@ -251,19 +257,20 @@
                                                                                                                                         <div class="movie">
                                                                                                                                             <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masValoradas.get(4).getId()%>" ><img src="<%= detalles.get(4).getPoster()%>" alt="" /></a> </div>
                                                                                                                                             <div>
-                                                                                                                                                <% if (masValoradas.get(4).getMedia() == 0.0) { %>
+                                                                                                                                                <% media = masValoradas.get(4).getValoracionMedia(); %>
+                                                                                                                                                <% if (media == 0.0) { %>
                                                                                                                                                 <ul class="rating nostar">
                                                                                                                                                     <% } else {
-                                        if (masValoradas.get(4).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                     <ul class="rating onestar">
                                                                                                                                                         <% } else {
-                                            if (masValoradas.get(4).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                             <% } else {
-                                                if (masValoradas.get(4).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                             <ul class="rating threestar">
                                                                                                                                                                 <% } else {
-                                                    if (masValoradas.get(4).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                 <ul class="rating fourstar">
                                                                                                                                                                     <% } else { %>
                                                                                                                                                                     <ul class="rating fivestar">
@@ -284,19 +291,20 @@
                                                                                                                                                                     <div class="movie last">
                                                                                                                                                                         <div class="movie-image"> <span class="play"><span class="name">ICE AGE</span></span> <a href="#"><img src="<%= detalles.get(5).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                         <div>
-                                                                                                                                                                            <% if (masValoradas.get(5).getMedia() == 0.0) { %>
+                                                                                                                                                                            <% media = masValoradas.get(5).getValoracionMedia(); %>
+                                                                                                                                                                            <% if (media == 0.0) { %>
                                                                                                                                                                             <ul class="rating nostar">
                                                                                                                                                                                 <% } else {
-                                        if (masValoradas.get(5).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                 <ul class="rating onestar">
                                                                                                                                                                                     <% } else {
-                                            if (masValoradas.get(5).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                     <ul class="rating twostar">
                                                                                                                                                                                         <% } else {
-                                                if (masValoradas.get(5).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                             <% } else {
-                                                    if (masValoradas.get(5).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                             <ul class="rating fourstar">
                                                                                                                                                                                                 <% } else { %>
                                                                                                                                                                                                 <ul class="rating fivestar">
@@ -335,19 +343,20 @@
                                                                                                                                                                                                     <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(0).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(0).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(0).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(0).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(0).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(0).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -368,19 +377,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= novedades.get(1).getId()%>"><img src="<%= detalles.get(1).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(1).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(1).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(1).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(1).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(1).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(1).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -401,19 +411,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= novedades.get(2).getId()%>"><img src="<%= detalles.get(2).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(2).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(2).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(2).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(2).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(2).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(2).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -434,19 +445,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= novedades.get(3).getId()%>"><img src="<%= detalles.get(3).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(3).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(3).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(3).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(3).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(3).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(3).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -467,19 +479,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(4).getId()%>"><img src="<%= detalles.get(6).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(4).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(4).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(4).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(4).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(4).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(4).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -500,19 +513,20 @@
                                                                                                                                                                                                         <div class="movie last">
                                                                                                                                                                                                         <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(5).getId()%>"><img src="<%= detalles.get(5).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (novedades.get(5).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = novedades.get(5).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (novedades.get(5).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (novedades.get(5).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (novedades.get(5).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (novedades.get(5).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -550,19 +564,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masComentadas.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(0).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(0).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(0).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(0).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(0).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(0).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -583,19 +598,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= masComentadas.get(1).getId()%>"><img src="<%= detalles.get(1).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(1).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(1).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(1).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(1).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(1).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(1).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -616,19 +632,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= masComentadas.get(2).getId()%>"><img src="<%= detalles.get(2).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(2).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(2).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(2).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(2).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(2).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(2).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -649,19 +666,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= masComentadas.get(3).getId()%>"><img src="<%= detalles.get(3).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(3).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(3).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(3).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(3).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(3).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(3).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -682,19 +700,20 @@
                                                                                                                                                                                                         <div class="movie">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= masComentadas.get(4).getId()%>"><img src="<%= detalles.get(4).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(4).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(4).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(4).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(4).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(4).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(4).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
@@ -715,19 +734,20 @@
                                                                                                                                                                                                         <div class="movie last">
                                                                                                                                                                                                         <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= masComentadas.get(5).getId()%>"><img src="<%= detalles.get(5).getPoster()%>" alt="" /></a> </div>
                                                                                                                                                                                                         <div>
-                                                                                                                                                                                                        <% if (masComentadas.get(5).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <% media = masComentadas.get(5).getValoracionMedia(); %>
+                                                                                                                                                                                                        <% if (media == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                        if (masComentadas.get(5).getMedia() < 2.0) { %>
+                                        if (media < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                            if (masComentadas.get(5).getMedia() < 3.0) { %>
+                                            if (media < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                if (masComentadas.get(5).getMedia() < 4.0) { %>
+                                                if (media < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                    if (masComentadas.get(5).getMedia() < 5.0) { %>
+                                                    if (media < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
