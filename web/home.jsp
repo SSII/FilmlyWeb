@@ -91,7 +91,7 @@
                     <div class="box">
                         <div class="head">
                             <h2>Recomendaciones</h2>
-                            <p class="text-right"><a href="#">Ver todos</a></p>
+                            <p class="text-right" style="color: #ffffff">Ver todos</p>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= recomendaciones.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster() %>" alt="" /></a> </div>
@@ -310,7 +310,7 @@
                           
                         <div class="head">
                             <h2>Mejor valoradas</h2>
-                            <p class="text-right"><a href="#">Ver todos</a></p>
+                            <p class="text-right" style="color: #ffffff">Ver todos</p>
                         </div>
                         <div class="movie">
                             <div class="movie-image">  <a href="perfilPelicula.jsp?id=<%= masValoradas.get(0).getId()%>" ><img src="<%= detalles.get(0).getPoster() %>" alt="" /></a> </div>
@@ -529,7 +529,7 @@
                     <div class="box">
                         <div class="head">
                             <h2>Novedades</h2>
-                            <p class="text-right"><a href="#">Ver todos</a></p>
+                            <p class="text-right" style="color: #ffffff">Ver todos</p>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster() %>" alt="" /></a> </div>
@@ -744,7 +744,7 @@
                     <div class="box">
                         <div class="head">
                             <h2>Más comentadas</h2>
-                            <p class="text-right"><a href="#">Ver todos</a></p>
+                            <p class="text-right" style="color: #ffffff">Ver todos</p>
                         </div>
                         <div class="movie">
                             <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= masComentadas.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster() %>" alt="" /></a> </div>
