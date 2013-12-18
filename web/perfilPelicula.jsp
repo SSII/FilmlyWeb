@@ -164,13 +164,13 @@
 
                                 <td width="200" rowspan="6" align="center"> 
 
-                                    <% if (media <= 2.0) { %>
+                                    <% if (media < 2.0) { %>
                                     <div class="puntuacion rojo">
                                         <% } else { %>
-                                        <% if (media <= 3.0) { %>
+                                        <% if (media < 3.0) { %>
                                         <div class="puntuacion naranja">
                                             <% } else { %>
-                                            <% if (media <= 4.0) { %>
+                                            <% if (media < 4.0) { %>
                                             <div class="puntuacion amarillo">
                                                 <% } else { %>
                                                 <% if (media < 5.0) { %>
