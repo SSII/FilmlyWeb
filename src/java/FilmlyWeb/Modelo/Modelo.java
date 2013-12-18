@@ -123,7 +123,6 @@ public class Modelo {
         q.setParameter(3, v.getPuntuacion());
         q.setParameter(4, obtenerUltimoIDValoraciones());
         q.setParameter(5, v.getComentario());
-        usuarioLogueado.addValoracion(v);
         
         em.getTransaction().begin();
         q.executeUpdate();
