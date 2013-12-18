@@ -11,14 +11,14 @@
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
             <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
-        <link rel="stylesheet" type="text/css" href="css/style.autocomplete.css" />
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-        <script src="js/jquery.autocomplete.js"></script>
-        <script>
-            jQuery(function() {
-                $("#cajaBusqueda").autocomplete("busqueda.jsp");
-            });
-        </script> 
+            <link rel="stylesheet" type="text/css" href="css/style.autocomplete.css" />
+            <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+            <script src="js/jquery.autocomplete.js"></script>
+            <script>
+                jQuery(function() {
+                    $("#cajaBusqueda").autocomplete("busqueda.jsp");
+                });
+            </script> 
 
     </head>
     <body>
@@ -27,13 +27,13 @@
 
         <%  int offset = Integer.parseInt(request.getParameter("index"));
             List<DetallesPelicula> detalles = new LinkedList();
-            List<Pelicula> valoraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas();          
+            List<Pelicula> valoraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas();
 
             for (Pelicula p : valoraciones) {
                 detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
             }
-            
-            
+
+
         %>
 
 
@@ -42,9 +42,9 @@
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-                
-               <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
-                
+
+                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -60,7 +60,7 @@
 
 
                 <% } else { %>
-                
+
                 <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
@@ -136,7 +136,7 @@
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
 
                 <ul class="dashboard">
-                    <li><a href="valoraciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
+                    <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
                     <li><a href="misValoraciones.jsp?index=0">MIS VALORACIONES</a></li>
                     <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                     <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
@@ -158,294 +158,301 @@
 
             <div id="main">
                 <div id="content">
-            <div align="center" id="sub-navigation">
-                <br>
-                    <table border="0" align="center" cellpadding="5" cellspacing="5">
-                        <!-- Primera fila-->
 
-                        <tr> 
-                            <!-- Pelicula 1 -->
-                            <td rowspan="2"> 
-                                <div class="movie-list-image"> 
-                                    <a href="perfilPelicula.jsp?id=<%= valoraciones.get((0+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((0+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
-                                </div>
-                            </td>
-                            <td width="250px">
+                    <% if (Controlador.getInstancia().getUsuarioLogueado().getValoraciones().size() == 0) { %>
 
-                                <h1 style="color: #000"><%= valoraciones.get((0+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((0+offset)%valoraciones.size()).getAnno() + ")"%></h1>
+                    <div style="font-size: 40px;"><p align="center" style="color: #000">Todavía no has valorado ninguna película... </p></div> 
 
-                                <% if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() == 0.0) { %>
-                                <ul class="rating nostar">
-                                    <% } else {
-                                        if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() < 2.0) { %>
-                                    <ul class="rating onestar">
-                                        <% } else {
-                                            if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() < 3.0) { %>
-                                        <ul class="rating twostar">
+                    <% } else {%>
+
+                    <div align="center" id="sub-navigation">
+                        <br>
+                            <table border="0" align="center" cellpadding="5" cellspacing="5">
+                                <!-- Primera fila-->
+
+                                <tr> 
+                                    <!-- Pelicula 1 -->
+                                    <td rowspan="2"> 
+                                        <div class="movie-list-image"> 
+                                            <a href="perfilPelicula.jsp?id=<%= valoraciones.get((0 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((0 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                        </div>
+                                    </td>
+                                    <td width="250px">
+
+                                        <h1 style="color: #000"><%= valoraciones.get((0 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((0 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+
+                                        <% if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
+                                        <ul class="rating nostar">
                                             <% } else {
-                                                if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() < 4.0) { %>
-                                            <ul class="rating threestar">
+                                        if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                            <ul class="rating onestar">
                                                 <% } else {
-                                                    if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                <ul class="rating fourstar">
-                                                    <% } else { %>
-                                                    <ul class="rating fivestar">
-                                                        <% }
+                                            if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                <ul class="rating twostar">
+                                                    <% } else {
+                                                if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                    <ul class="rating threestar">
+                                                        <% } else {
+                                                    if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                        <ul class="rating fourstar">
+                                                            <% } else { %>
+                                                            <ul class="rating fivestar">
+                                                                <% }
+                                                                                }
+                                                                            }
                                                                         }
-                                                                    }
-                                                                }
-                                                            }%>
-                                                        <li class="one"></li>
-                                                        <li class="two"></li>
-                                                        <li class="three"></li>
-                                                        <li class="four"></li>
-                                                        <li class="five"></li>
-                                                    </ul>
-                                                    <br/>
-                                                    <br/>
-                                                    <br/>
-                                                    <h3>Director:</h3><p><h3><%= detalles.get((0+offset)%valoraciones.size()).getDirector()%></h3></p>
-                                                    </td>
-                                                    <td style="padding-right: 50px"/>
-                                                    <td rowspan="2" style="padding-bottom: 50px">
-                                                        <% if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
-                                                        <div class="puntuacion rojo">
-                                                            <% } else {
-                                                                if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
-                                                            <div class="puntuacion naranja">
-                                                                <% } else {
-                                                                    if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
-                                                                <div class="puntuacion amarillo">
+                                                                    }%>
+                                                                <li class="one"></li>
+                                                                <li class="two"></li>
+                                                                <li class="three"></li>
+                                                                <li class="four"></li>
+                                                                <li class="five"></li>
+                                                            </ul>
+                                                            <br/>
+                                                            <br/>
+                                                            <br/>
+                                                            <h3>Director:</h3><p><h3><%= detalles.get((0 + offset) % valoraciones.size()).getDirector()%></h3></p>
+                                                            </td>
+                                                            <td style="padding-right: 50px"/>
+                                                            <td rowspan="2" style="padding-bottom: 50px">
+                                                                <% if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                <div class="puntuacion rojo">
                                                                     <% } else {
-                                                                        if (valoraciones.get((0+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                    <div class="puntuacion verde">
-                                                                        <% } else { %>
-                                                                        <div class="puntuacion azul">
-                                                                            <% }
-                                                                                        }
-                                                                                    }
-                                                                                }%>
-                                                                            <div class="valor-puntuacion decimal">
-                                                                                <%= valoraciones.get((0+offset)%valoraciones.size()).getMedia()%>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div>
-                                                                            <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                            <%= valoraciones.get((0+offset)%valoraciones.size()).getValoraciones().size()%>
-                                                                        </div>
-                                                                        </td>
+                                                                if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                    <div class="puntuacion naranja">
+                                                                        <% } else {
+                                                                    if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                        <div class="puntuacion amarillo">
+                                                                            <% } else {
+                                                                        if (valoraciones.get((0 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                            <div class="puntuacion verde">
+                                                                                <% } else { %>
+                                                                                <div class="puntuacion azul">
+                                                                                    <% }
+                                                                                                }
+                                                                                            }
+                                                                                        }%>
+                                                                                    <div class="valor-puntuacion decimal">
+                                                                                        <%= valoraciones.get((0 + offset) % valoraciones.size()).getMedia()%>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                                                                    <%= valoraciones.get((0 + offset) % valoraciones.size()).getValoraciones().size()%>
+                                                                                </div>
+                                                                                </td>
 
-                                                                        <!-- Pelicula 2 -->
-                                                                        <td style="padding-right: 20px"/>
-                                                                        <td rowspan="2"> 
-                                                                            <div class="movie-list-image"> 
-                                                                                <a href="perfilPelicula.jsp?id=<%= valoraciones.get((1+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((1+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((1+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((1+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                <% if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() == 0.0) { %>
-                                                                            <ul class="rating nostar">
-                                                                                <% } else {
-                                                                                    if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() < 2.0) { %>
-                                                                                <ul class="rating onestar">
-                                                                                    <% } else {
-                                                                                        if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() < 3.0) { %>
-                                                                                    <ul class="rating twostar">
+                                                                                <!-- Pelicula 2 -->
+                                                                                <td style="padding-right: 20px"/>
+                                                                                <td rowspan="2"> 
+                                                                                    <div class="movie-list-image"> 
+                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((1 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((1 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td width="250px"><h1 style="color: #000"><%= valoraciones.get((1 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((1 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                    <% if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                    <ul class="rating nostar">
                                                                                         <% } else {
-                                                                                            if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() < 4.0) { %>
-                                                                                        <ul class="rating threestar">
+                                                                                    if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                        <ul class="rating onestar">
                                                                                             <% } else {
-                                                                                                if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                                            <ul class="rating fourstar">
-                                                                                                <% } else { %>
-                                                                                                <ul class="rating fivestar">
-                                                                                                    <% }
+                                                                                        if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                            <ul class="rating twostar">
+                                                                                                <% } else {
+                                                                                            if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                <ul class="rating threestar">
+                                                                                                    <% } else {
+                                                                                                if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                    <ul class="rating fourstar">
+                                                                                                        <% } else { %>
+                                                                                                        <ul class="rating fivestar">
+                                                                                                            <% }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     }
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }%>
-                                                                                                    <li class="one"></li>
-                                                                                                    <li class="two"></li>
-                                                                                                    <li class="three"></li>
-                                                                                                    <li class="four"></li>
-                                                                                                    <li class="five"></li>
-                                                                                                </ul>
-                                                                                                <br/>
-                                                                                                <br/>
-                                                                                                <br/>
-                                                                                                <h3>Director:</h3><p><h3><%= detalles.get((1+offset)%valoraciones.size()).getDirector()%></h3></p>
-                                                                                                </td>
-                                                                                                <td style="padding-right: 50px"/>
-                                                                                                <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                    <% if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
-                                                                                                    <div class="puntuacion rojo">
-                                                                                                        <% } else {
-                                                                                                            if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
-                                                                                                        <div class="puntuacion naranja">
-                                                                                                            <% } else {
-                                                                                                                if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
-                                                                                                            <div class="puntuacion amarillo">
+                                                                                                                }%>
+                                                                                                            <li class="one"></li>
+                                                                                                            <li class="two"></li>
+                                                                                                            <li class="three"></li>
+                                                                                                            <li class="four"></li>
+                                                                                                            <li class="five"></li>
+                                                                                                        </ul>
+                                                                                                        <br/>
+                                                                                                        <br/>
+                                                                                                        <br/>
+                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((1 + offset) % valoraciones.size()).getDirector()%></h3></p>
+                                                                                                        </td>
+                                                                                                        <td style="padding-right: 50px"/>
+                                                                                                        <td rowspan="2" style="padding-bottom: 50px">
+                                                                                                            <% if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                            <div class="puntuacion rojo">
                                                                                                                 <% } else {
-                                                                                                                    if (valoraciones.get((1+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                                                                <div class="puntuacion verde">
-                                                                                                                    <% } else { %>
-                                                                                                                    <div class="puntuacion azul">
-                                                                                                                        <% }
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                            }%>
-                                                                                                                        <div class="valor-puntuacion decimal">
-                                                                                                                            <%= valoraciones.get((1+offset)%valoraciones.size()).getMedia()%>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                    <div>
-                                                                                                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                        <%= valoraciones.get((1+offset)%valoraciones.size()).getValoraciones().size()%>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-
-
-                                                                                                                    </tr>
-
-
-                                                                                                                    <!-- Segunda fila-->
-                                                                                                                    <tr style="padding-right: 20px"/>
-                                                                                                                    <tr> 
-                                                                                                                        <!-- Pelicula 1 -->
-                                                                                                                        <td rowspan="2"> 
-                                                                                                                            <div class="movie-list-image"> 
-                                                                                                                                <a href="perfilPelicula.jsp?id=<%= valoraciones.get((2+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((2+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                            if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                <div class="puntuacion naranja">
+                                                                                                                    <% } else {
+                                                                                                                if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                    <div class="puntuacion amarillo">
+                                                                                                                        <% } else {
+                                                                                                                    if (valoraciones.get((1 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                        <div class="puntuacion verde">
+                                                                                                                            <% } else { %>
+                                                                                                                            <div class="puntuacion azul">
+                                                                                                                                <% }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }%>
+                                                                                                                                <div class="valor-puntuacion decimal">
+                                                                                                                                    <%= valoraciones.get((1 + offset) % valoraciones.size()).getMedia()%>
+                                                                                                                                </div>
                                                                                                                             </div>
-                                                                                                                        </td>
-                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((2+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((2+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                <% if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() == 0.0) { %>
-                                                                                                                            <ul class="rating nostar">
-                                                                                                                                <% } else {
-                                                                                                                                    if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() < 2.0) { %>
-                                                                                                                                <ul class="rating onestar">
-                                                                                                                                    <% } else {
-                                                                                                                                        if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() < 3.0) { %>
-                                                                                                                                    <ul class="rating twostar">
-                                                                                                                                        <% } else {
-                                                                                                                                            if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() < 4.0) { %>
-                                                                                                                                        <ul class="rating threestar">
-                                                                                                                                            <% } else {
-                                                                                                                                                if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                                                                                            <ul class="rating fourstar">
-                                                                                                                                                <% } else { %>
-                                                                                                                                                <ul class="rating fivestar">
-                                                                                                                                                    <% }
-                                                                                                                                                                    }
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }%>
-                                                                                                                                                    <li class="one"></li>
-                                                                                                                                                    <li class="two"></li>
-                                                                                                                                                    <li class="three"></li>
-                                                                                                                                                    <li class="four"></li>
-                                                                                                                                                    <li class="five"></li>
-                                                                                                                                                </ul>
-                                                                                                                                                <br/>
-                                                                                                                                                <br/>
-                                                                                                                                                <br/>
-                                                                                                                                                <h3>Director:</h3><p><h3><%= detalles.get((2+offset)%valoraciones.size()).getDirector()%></h3></p>
-                                                                                                                                                </td>
-                                                                                                                                                <td style="padding-right: 50px"/>
-                                                                                                                                                <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                    <% if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
-                                                                                                                                                    <div class="puntuacion rojo">
-                                                                                                                                                        <% } else {
-                                                                                                                                                            if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
-                                                                                                                                                        <div class="puntuacion naranja">
-                                                                                                                                                            <% } else {
-                                                                                                                                                                if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
-                                                                                                                                                            <div class="puntuacion amarillo">
-                                                                                                                                                                <% } else {
-                                                                                                                                                                    if (valoraciones.get((2+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                                                                                                                <div class="puntuacion verde">
-                                                                                                                                                                    <% } else { %>
-                                                                                                                                                                    <div class="puntuacion azul">
-                                                                                                                                                                        <% }
-                                                                                                                                                                                    }
-                                                                                                                                                                                }
-                                                                                                                                                                            }%>
-                                                                                                                                                                        <div class="valor-puntuacion decimal">
-                                                                                                                                                                            <%= valoraciones.get((2+offset)%valoraciones.size()).getMedia()%>
-                                                                                                                                                                        </div>
-                                                                                                                                                                    </div>
-                                                                                                                                                                    <div>
-                                                                                                                                                                        <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                        <%= valoraciones.get((2+offset)%valoraciones.size()).getValoraciones().size()%>
-                                                                                                                                                                    </div>
-                                                                                                                                                                    </td>
+                                                                                                                            <div>
+                                                                                                                                <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                                                                                                                <%= valoraciones.get((1 + offset) % valoraciones.size()).getValoraciones().size()%>
+                                                                                                                            </div>
+                                                                                                                            </td>
 
-                                                                                                                                                                    <!-- Pelicula 2 -->
-                                                                                                                                                                    <td style="padding-right: 20px"/>
-                                                                                                                                                                    <td rowspan="2"> 
-                                                                                                                                                                        <div class="movie-list-image"> 
-                                                                                                                                                                            <a href="perfilPelicula.jsp?id=<%= valoraciones.get((3+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((3+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
-                                                                                                                                                                        </div>
-                                                                                                                                                                    </td>
-                                                                                                                                                                    <td width="250px"><h1 style="color: #000"><%= valoraciones.get((3+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((3+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                            <% if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() == 0.0) { %>
-                                                                                                                                                                        <ul class="rating nostar">
-                                                                                                                                                                            <% } else {
-                                                                                                                                                                                if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() < 2.0) { %>
-                                                                                                                                                                            <ul class="rating onestar">
-                                                                                                                                                                                <% } else {
-                                                                                                                                                                                    if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() < 3.0) { %>
-                                                                                                                                                                                <ul class="rating twostar">
+
+
+                                                                                                                            </tr>
+
+
+                                                                                                                            <!-- Segunda fila-->
+                                                                                                                            <tr style="padding-right: 20px"/>
+                                                                                                                            <tr> 
+                                                                                                                                <!-- Pelicula 1 -->
+                                                                                                                                <td rowspan="2"> 
+                                                                                                                                    <div class="movie-list-image"> 
+                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((2 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((2 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                    </div>
+                                                                                                                                </td>
+                                                                                                                                <td width="250px"><h1 style="color: #000"><%= valoraciones.get((2 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((2 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                    <% if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                    <ul class="rating nostar">
+                                                                                                                                        <% } else {
+                                                                                                                                    if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                        <ul class="rating onestar">
+                                                                                                                                            <% } else {
+                                                                                                                                        if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                            <ul class="rating twostar">
+                                                                                                                                                <% } else {
+                                                                                                                                            if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                <ul class="rating threestar">
+                                                                                                                                                    <% } else {
+                                                                                                                                                if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                    <ul class="rating fourstar">
+                                                                                                                                                        <% } else { %>
+                                                                                                                                                        <ul class="rating fivestar">
+                                                                                                                                                            <% }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                }%>
+                                                                                                                                                            <li class="one"></li>
+                                                                                                                                                            <li class="two"></li>
+                                                                                                                                                            <li class="three"></li>
+                                                                                                                                                            <li class="four"></li>
+                                                                                                                                                            <li class="five"></li>
+                                                                                                                                                        </ul>
+                                                                                                                                                        <br/>
+                                                                                                                                                        <br/>
+                                                                                                                                                        <br/>
+                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((2 + offset) % valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                        </td>
+                                                                                                                                                        <td style="padding-right: 50px"/>
+                                                                                                                                                        <td rowspan="2" style="padding-bottom: 50px">
+                                                                                                                                                            <% if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                            <div class="puntuacion rojo">
+                                                                                                                                                                <% } else {
+                                                                                                                                                            if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                <div class="puntuacion naranja">
+                                                                                                                                                                    <% } else {
+                                                                                                                                                                if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                    <div class="puntuacion amarillo">
+                                                                                                                                                                        <% } else {
+                                                                                                                                                                    if (valoraciones.get((2 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                        <div class="puntuacion verde">
+                                                                                                                                                                            <% } else { %>
+                                                                                                                                                                            <div class="puntuacion azul">
+                                                                                                                                                                                <% }
+                                                                                                                                                                                            }
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }%>
+                                                                                                                                                                                <div class="valor-puntuacion decimal">
+                                                                                                                                                                                    <%= valoraciones.get((2 + offset) % valoraciones.size()).getMedia()%>
+                                                                                                                                                                                </div>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            <div>
+                                                                                                                                                                                <img src="css/images/comentario1.png" height="auto" width="20"/>
+                                                                                                                                                                                <%= valoraciones.get((2 + offset) % valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            </td>
+
+                                                                                                                                                                            <!-- Pelicula 2 -->
+                                                                                                                                                                            <td style="padding-right: 20px"/>
+                                                                                                                                                                            <td rowspan="2"> 
+                                                                                                                                                                                <div class="movie-list-image"> 
+                                                                                                                                                                                    <a href="perfilPelicula.jsp?id=<%= valoraciones.get((3 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((3 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                </div>
+                                                                                                                                                                            </td>
+                                                                                                                                                                            <td width="250px"><h1 style="color: #000"><%= valoraciones.get((3 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((3 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                <% if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                <ul class="rating nostar">
                                                                                                                                                                                     <% } else {
-                                                                                                                                                                                        if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() < 4.0) { %>
-                                                                                                                                                                                    <ul class="rating threestar">
+                                                                                                                                                                                if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                    <ul class="rating onestar">
                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                            if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() < 5.0) { %>
-                                                                                                                                                                                        <ul class="rating fourstar">
-                                                                                                                                                                                            <% } else { %>
-                                                                                                                                                                                            <ul class="rating fivestar">
-                                                                                                                                                                                                <% }
-                                                                                                                                                                                                                }
-                                                                                                                                                                                                            }
+                                                                                                                                                                                    if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                        <ul class="rating twostar">
+                                                                                                                                                                                            <% } else {
+                                                                                                                                                                                        if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                            <ul class="rating threestar">
+                                                                                                                                                                                                <% } else {
+                                                                                                                                                                                            if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                <ul class="rating fourstar">
+                                                                                                                                                                                                    <% } else { %>
+                                                                                                                                                                                                    <ul class="rating fivestar">
+                                                                                                                                                                                                        <% }
                                                                                                                                                                                                         }
-                                                                                                                                                                                                    }%>
-                                                                                                                                                                                                <li class="one"></li>
-                                                                                                                                                                                                <li class="two"></li>
-                                                                                                                                                                                                <li class="three"></li>
-                                                                                                                                                                                                <li class="four"></li>
-                                                                                                                                                                                                <li class="five"></li>
-                                                                                                                                                                                            </ul>
-                                                                                                                                                                                            <br/>
-                                                                                                                                                                                            <br/>
-                                                                                                                                                                                            <br/>
-                                                                                                                                                                                            <h3>Director:</h3><p><h3><%= detalles.get((3+offset)%valoraciones.size()).getDirector()%></h3></p>
-                                                                                                                                                                                            </td>
-                                                                                                                                                                                            <td style="padding-right: 50px"/>
-                                                                                                                                                                                            <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                <% if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
-                                                                                                                                                                                                <div class="puntuacion rojo">
-                                                                                                                                                                                                    <% } else {
-                                                                                                                                                                                                        if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
-                                                                                                                                                                                                    <div class="puntuacion naranja">
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                        <li class="one"></li>
+                                                                                                                                                                                                        <li class="two"></li>
+                                                                                                                                                                                                        <li class="three"></li>
+                                                                                                                                                                                                        <li class="four"></li>
+                                                                                                                                                                                                        <li class="five"></li>
+                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                    <br/>
+                                                                                                                                                                                                    <br/>
+                                                                                                                                                                                                    <br/>
+                                                                                                                                                                                                    <h3>Director:</h3><p><h3><%= detalles.get((3 + offset) % valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                    <td style="padding-right: 50px"/>
+                                                                                                                                                                                                    <td rowspan="2" style="padding-bottom: 50px">
+                                                                                                                                                                                                        <% if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                        <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                        if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                        <div class="puntuacion naranja">
+                                                                                                                                                                                                        <% } else {
+                                                                                                                                                                                                            if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((3+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((3 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((3+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((3 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((3+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((3 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -461,31 +468,31 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((4+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((4+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((4 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((4 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((4+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((4+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((4 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((4 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -495,35 +502,35 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((4+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((4 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((4+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((4 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((4+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((4 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((4+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((4 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -531,31 +538,31 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((5+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((5+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((5 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((5 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((5+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((5+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((5 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((5 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -565,34 +572,34 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((5+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((5 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((5+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((5 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((5+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((5 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((5+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((5 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -608,31 +615,31 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((6+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((6+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((6 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((6 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((6+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((6+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((6 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((6 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -642,34 +649,34 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((6+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((6 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((6+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((6 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((6+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((6 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((6+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((6 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -677,31 +684,31 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((7+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((7+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((7 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((7 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((7+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((7+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((7 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((7 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -711,34 +718,34 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((7+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((7 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((7+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((7 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((7+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((7 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((7+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((7 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -754,31 +761,31 @@
                                                                                                                                                                                                         <!-- Pelicula 1 -->
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((8+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((8+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((8 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((8 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((8+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((8+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((8 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((8 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -788,34 +795,34 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((8+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((8 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((8+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((8 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((8+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((8 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((8+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((8 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -823,31 +830,31 @@
                                                                                                                                                                                                         <td style="padding-right: 20px"/>
                                                                                                                                                                                                         <td rowspan="2"> 
                                                                                                                                                                                                         <div class="movie-list-image"> 
-                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((9+offset)%valoraciones.size()).getId()%>" ><img src="<%= detalles.get((9+offset)%valoraciones.size()).getPoster()%>" class="image-poster"/></a>
+                                                                                                                                                                                                        <a href="perfilPelicula.jsp?id=<%= valoraciones.get((9 + offset) % valoraciones.size()).getId()%>" ><img src="<%= detalles.get((9 + offset) % valoraciones.size()).getPoster()%>" class="image-poster"/></a>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
-                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((9+offset)%valoraciones.size()).getTitulo() + " (" + valoraciones.get((9+offset)%valoraciones.size()).getAnno() + ")"%></h1>
-                                                                                                                                                                                                        <% if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() == 0.0) { %>
+                                                                                                                                                                                                        <td width="250px"><h1 style="color: #000"><%= valoraciones.get((9 + offset) % valoraciones.size()).getTitulo() + " (" + valoraciones.get((9 + offset) % valoraciones.size()).getAnno() + ")"%></h1>
+                                                                                                                                                                                                        <% if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() == 0.0) { %>
                                                                                                                                                                                                         <ul class="rating nostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() < 2.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <ul class="rating onestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() < 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <ul class="rating twostar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() < 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <ul class="rating threestar">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <ul class="rating fourstar">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <ul class="rating fivestar">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <li class="one"></li>
                                                                                                                                                                                                         <li class="two"></li>
                                                                                                                                                                                                         <li class="three"></li>
@@ -857,34 +864,34 @@
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <br/>
-                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((9+offset)%valoraciones.size()).getDirector()%></h3></p>
+                                                                                                                                                                                                        <h3>Director:</h3><p><h3><%= detalles.get((9 + offset) % valoraciones.size()).getDirector()%></h3></p>
                                                                                                                                                                                                         </td>
                                                                                                                                                                                                         <td style="padding-right: 50px"/>
                                                                                                                                                                                                         <td rowspan="2" style="padding-bottom: 50px">
-                                                                                                                                                                                                        <% if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() <= 2.0) { %>
+                                                                                                                                                                                                        <% if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 2.0) { %>
                                                                                                                                                                                                         <div class="puntuacion rojo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() <= 3.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 3.0) { %>
                                                                                                                                                                                                         <div class="puntuacion naranja">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() <= 4.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (valoraciones.get((9+offset)%valoraciones.size()).getMedia() < 5.0) { %>
+                                                                                                                                                                                                            if (valoraciones.get((9 + offset) % valoraciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
                                                                                                                                                                                                         <% }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }%>
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }%>
                                                                                                                                                                                                         <div class="valor-puntuacion decimal">
-                                                                                                                                                                                                        <%= valoraciones.get((9+offset)%valoraciones.size()).getMedia()%>
+                                                                                                                                                                                                        <%= valoraciones.get((9 + offset) % valoraciones.size()).getMedia()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         <div>
                                                                                                                                                                                                         <img src="css/images/comentario1.png" height="auto" width="20"/>
-                                                                                                                                                                                                        <%= valoraciones.get((9+offset)%valoraciones.size()).getValoraciones().size()%>
+                                                                                                                                                                                                        <%= valoraciones.get((9 + offset) % valoraciones.size()).getValoraciones().size()%>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </td>
 
@@ -895,20 +902,22 @@
 
                                                                                                                                                                                                         <br/>
                                                                                                                                                                                                         <p>                        
-                                                                                                                                                                                                        <a style="padding-right: 15px" href="valoraciones.jsp?index=<%
-                                                                                                                                                                                                        if (request.getParameter("index").equals("0") || request.getParameter("index").equals("9")) {
-                                                                                                                                                                                                        out.println(0);
-                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                        out.println(Integer.parseInt(request.getParameter("index")) - 10);
-                                                                                                                                                                                                        }%> "> Ver anteriores </a>
-                                                                                                                                                                                                        <a href="valoraciones.jsp?index=<%
-                                                                                                                                                                                                        if (request.getParameter("index").equals("0")) {
-                                                                                                                                                                                                        out.println(9);
-                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                        out.println(Integer.parseInt(request.getParameter("index")) + 10);
-                                                                                                                                                                                                        }%>"> Ver siguientes </a>
+                                                                                                                                                                                                        <a style="padding-right: 15px" href="misValoraciones.jsp?index=<%
+                                                                                                                                                                                                            if (request.getParameter("index").equals("0") || request.getParameter("index").equals("9")) {
+                                                                                                                                                                                                                out.println(0);
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                out.println(Integer.parseInt(request.getParameter("index")) - 10);
+                                                                                                                                                                                                            }%> "> Ver anteriores </a>
+                                                                                                                                                                                                        <a href="misValoraciones.jsp?index=<%
+                                                                                                                                                                                                            if (request.getParameter("index").equals("0")) {
+                                                                                                                                                                                                                out.println(9);
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                out.println(Integer.parseInt(request.getParameter("index")) + 10);
+                                                                                                                                                                                                            }%>"> Ver siguientes </a>
                                                                                                                                                                                                         </p>
                                                                                                                                                                                                         </div>
+
+                                                                                                                                                                                                        <% }%>
 
 
                                                                                                                                                                                                         <div id="footer">
@@ -919,7 +928,7 @@
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                        
+
                                                                                                                                                                                                         <!-- END PAGE SOURCE -->
                                                                                                                                                                                                         </body>
                                                                                                                                                                                                         </html>

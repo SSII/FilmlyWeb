@@ -128,8 +128,9 @@
                     </div>
                 </div>
 
-                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
-
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { 
+                %>                            
+                
                 <ul class="dashboard">
                     <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
                     <li><a href="misValoraciones.jsp?index=0">MIS VALORACIONES</a></li>
