@@ -132,7 +132,7 @@
 
                 <ul class="dashboard">
                     <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
-                    <li><a href="#">MIS VALORACIONES</a></li>
+                    <li><a href=href="misValoraciones.jsp?index=0">MIS VALORACIONES</a></li>
                     <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                     <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                     <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
@@ -164,13 +164,13 @@
 
                                 <td width="200" rowspan="6" align="center"> 
 
-                                    <% if (media <= 2.0) { %>
+                                    <% if (media < 2.0) { %>
                                     <div class="puntuacion rojo">
                                         <% } else { %>
-                                        <% if (media <= 3.0) { %>
+                                        <% if (media < 3.0) { %>
                                         <div class="puntuacion naranja">
                                             <% } else { %>
-                                            <% if (media <= 4.0) { %>
+                                            <% if (media < 4.0) { %>
                                             <div class="puntuacion amarillo">
                                                 <% } else { %>
                                                 <% if (media < 5.0) { %>
