@@ -130,6 +130,22 @@ public class Modelo {
         
         usuarioLogueado.addValoracion(v);
         v.getPelicula().addValoracion(v);
+        
+        Query q1 = em.createNativeQuery("UPDATE peliculas SET media=:med WHERE id=:identificador");
+        q1.setParameter("med", v.getPelicula().getValoracionMedia());
+        q1.setParameter("identificador", v.getPelicula().getId());
+        
+        em.getTransaction().begin();
+        q1.executeUpdate();
+        em.getTransaction().commit();
+        
+         Query q2 = em.createNativeQuery("UPDATE peliculas SET valoraciones=:med WHERE id=:identificador");
+        q2.setParameter("med", v.getPelicula().getValoraciones().size());
+        q2.setParameter("identificador", v.getPelicula().getId());
+        
+        em.getTransaction().begin();
+        q2.executeUpdate();
+        em.getTransaction().commit();
     }
     
     public Usuario getUsuarioLogueado(){
