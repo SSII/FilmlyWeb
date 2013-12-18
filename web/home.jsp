@@ -25,11 +25,11 @@
         <%@page import="FilmlyWeb.Controlador.Controlador" %>
 
         <% String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
-            int nvaloraciones = Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size();
-            List<Pelicula> masValoradas = Controlador.getInstancia().getPeliculasMasValoradas(0);
+           
+            List<Pelicula> recomendaciones = Controlador.getInstancia().obtenerRecomendaciones();
             List<DetallesPelicula> detalles = new LinkedList();
 
-            for (Pelicula p : masValoradas) {
+            for (Pelicula p : recomendaciones) {
                 detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
             }
         %>
@@ -70,7 +70,7 @@
 
                 <ul class="dashboard">
                     <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
-                    <li><a href="#">MIS VALORACIONES</a></li>
+                    <li><a href="misValoraciones.jsp?index=0">MIS VALORACIONES</a></li>
                     <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
                     <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
                     <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
@@ -78,9 +78,236 @@
 
                 </ul>
             </div>
+                                                          
             <div id="main">
                 <div id="content">
+                                       
+                    <%if(Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().size() == 0){%>
                     <div class="box">
+                        <div class="head"> 
+                            <h2 style="padding-left: 200px">¡Valora películas!. ¡Para ofrecerte recomendaciones necesitamos saber tus gustos</h2>
+                        </div> 
+                    <%}else{%>
+                    <div class="box">
+                        <div class="head">
+                            <h2>Recomendaciones</h2>
+                            <p class="text-right"><a href="#">Ver todos</a></p>
+                        </div>
+                        <div class="movie">
+                            <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= recomendaciones.get(0).getId()%>"><img src="<%= detalles.get(0).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(0).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(0).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(0).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(0).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(0).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(0).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="movie">
+                            <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= recomendaciones.get(1).getId()%>"><img src="<%= detalles.get(1).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(1).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(1).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(1).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(1).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(1).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(1).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="movie">
+                            <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= recomendaciones.get(2).getId()%>"><img src="<%= detalles.get(2).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(2).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(2).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(2).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(2).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(2).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(2).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="movie">
+                            <div class="movie-image"><a href="perfilPelicula.jsp?id=<%= recomendaciones.get(3).getId()%>"><img src="<%= detalles.get(3).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(3).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(3).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(3).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(3).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(3).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(3).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="movie">
+                            <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= recomendaciones.get(4).getId()%>"><img src="<%= detalles.get(7).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(4).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(4).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(4).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(4).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(4).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(4).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="movie last">
+                            <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= recomendaciones.get(5).getId()%>"><img src="<%= detalles.get(5).getPoster() %>" alt="" /></a> </div>
+                            <div>
+                                <% if (recomendaciones.get(5).getMedia() == 0.0) { %>
+                                <ul class="rating nostar">
+                                    <% } else {
+                                    if (recomendaciones.get(5).getMedia() < 2.0) { %>
+                                    <ul class="rating onestar">
+                                        <% } else {
+                                    if (recomendaciones.get(5).getMedia() < 3.0) { %>
+                                        <ul class="rating twostar">
+                                            <% } else {
+                                        if (recomendaciones.get(5).getMedia() < 4.0) { %>
+                                            <ul class="rating threestar">
+                                                <% } else {
+                                            if (recomendaciones.get(5).getMedia() < 5.0) { %>
+                                                <ul class="rating fourstar">
+                                                    <% } else { %>
+                                                    <ul class="rating fivestar">
+                                                        <% }
+                                                            }
+                                                        }
+                                                    }
+                                                }%>
+                                                        <li class="one"></li>
+                                                        <li class="two"></li>
+                                                        <li class="three"></li>
+                                                        <li class="four"></li>
+                                                        <li class="five"></li>
+                                                    </ul>
+                                <img src="css/images/minicomentario.png" class="img-comments" alt="Nº valoraciones"></img>
+                                <span class="comments"><%=recomendaciones.get(5).getValoraciones().size()%></span> </div>
+                        </div>
+                        <div class="cl">&nbsp;</div>
+                    </div>
+                    
+                  <%}%>  
+                    
+                  
+                      <%  
+                        List<Pelicula> masValoradas = Controlador.getInstancia().getPeliculasMasValoradas(0);
+                        detalles.clear();
+                        for (Pelicula p : masValoradas) {
+                            detalles.add(Controlador.getInstancia().getDetallesPelicula(p));
+                        }
+                    %>      
+                    
+  
+                    <div class="box">
+                          
                         <div class="head">
                             <h2>Mejor valoradas</h2>
                             <p class="text-right"><a href="#">Ver todos</a></p>
@@ -286,7 +513,9 @@
                         </div>
                         <div class="cl">&nbsp;</div>
                     </div>
-                                                       
+                    
+                   
+                    
                     
                     <%  
                         List<Pelicula> novedades = Controlador.getInstancia().getPeliculasNovedosas(0);
@@ -435,7 +664,7 @@
                                 <span class="comments"><%=novedades.get(3).getValoraciones().size()%></span> </div>
                         </div>
                         <div class="movie">
-                            <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(4).getId()%>"><img src="<%= detalles.get(7).getPoster() %>" alt="" /></a> </div>
+                            <div class="movie-image"> <a href="perfilPelicula.jsp?id=<%= novedades.get(4).getId()%>"><img src="<%= detalles.get(6).getPoster() %>" alt="" /></a> </div>
                             <div>
                                 <% if (novedades.get(4).getMedia() == 0.0) { %>
                                 <ul class="rating nostar">

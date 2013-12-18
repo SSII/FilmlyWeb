@@ -39,12 +39,12 @@
 
         <div id="shell">
             <div id="header">
-                <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
-
                 <% if (Controlador.getInstancia().getUsuarioLogueado() != null) {
                         String nombre = Controlador.getInstancia().getUsuarioLogueado().getNombre();
                 %>
-
+                
+               <h1 id="logo"><a href="home.jsp">Filmly</a></h1>
+                
                 <div id="navigation-home">
                     <ul>
                         <li style="display: table-cell; padding-right: 10px; font-weight: 700 ">
@@ -60,6 +60,8 @@
 
 
                 <% } else { %>
+                
+                <h1 id="logo"><a href="index.jsp">Filmly</a></h1>
 
                 <div id="navigation">
                     <ul>
@@ -131,13 +133,25 @@
 
                 </div>
 
-                    <ul class="dashboard">
-                        <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
-                        <li><a href="#">MIS VALORACIONES</a></li>
-                        <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
-                        <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
-                        <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
-                    </ul>
+                <% if (Controlador.getInstancia().getUsuarioLogueado() != null) { %>
+
+                <ul class="dashboard">
+                    <li><a href="recomendaciones.jsp?index=0">MIS RECOMENDACIONES</a></li>
+                    <li><a href="misValoraciones.jsp?index=0">MIS VALORACIONES</a></li>
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% } else { %>
+
+                <ul class="dashboard">
+                    <li><a href="mejorValoradas.jsp?index=0">MEJOR VALORADAS</a></li>
+                    <li><a href="masComentadas.jsp?index=0">MÁS COMENTADAS</a></li>
+                    <li><a href="novedades.jsp?index=0">NOVEDADES</a></li>
+                </ul>
+
+                <% }%>
             </div>
 
             <!--Lista de peliculas -->    
@@ -203,7 +217,7 @@
                                                                     if (recomendaciones.get((0+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                 <div class="puntuacion amarillo">
                                                                     <% } else {
-                                                                        if (recomendaciones.get((0+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                        if (recomendaciones.get((0+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                     <div class="puntuacion verde">
                                                                         <% } else { %>
                                                                         <div class="puntuacion azul">
@@ -272,7 +286,7 @@
                                                                                                                 if (recomendaciones.get((1+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                             <div class="puntuacion amarillo">
                                                                                                                 <% } else {
-                                                                                                                    if (recomendaciones.get((1+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                    if (recomendaciones.get((1+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                 <div class="puntuacion verde">
                                                                                                                     <% } else { %>
                                                                                                                     <div class="puntuacion azul">
@@ -348,7 +362,7 @@
                                                                                                                                                                 if (recomendaciones.get((2+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                             <div class="puntuacion amarillo">
                                                                                                                                                                 <% } else {
-                                                                                                                                                                    if (recomendaciones.get((2+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                    if (recomendaciones.get((2+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                 <div class="puntuacion verde">
                                                                                                                                                                     <% } else { %>
                                                                                                                                                                     <div class="puntuacion azul">
@@ -417,7 +431,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((3+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((3+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((3+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -494,7 +508,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((4+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((4+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((4+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -564,7 +578,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((5+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((5+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((5+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -641,7 +655,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((6+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((6+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((6+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -710,7 +724,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((7+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((7+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((7+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -787,7 +801,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((8+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((8+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((8+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">
@@ -856,7 +870,7 @@
                                                                                                                                                                                                             if (recomendaciones.get((9+offset)%recomendaciones.size()).getMedia() <= 4.0) { %>
                                                                                                                                                                                                         <div class="puntuacion amarillo">
                                                                                                                                                                                                         <% } else {
-                                                                                                                                                                                                            if (recomendaciones.get((9+offset)%recomendaciones.size()).getMedia() <= 5.0) { %>
+                                                                                                                                                                                                            if (recomendaciones.get((9+offset)%recomendaciones.size()).getMedia() < 5.0) { %>
                                                                                                                                                                                                         <div class="puntuacion verde">
                                                                                                                                                                                                         <% } else { %>
                                                                                                                                                                                                         <div class="puntuacion azul">

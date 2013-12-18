@@ -155,13 +155,13 @@
                     <!--Lista de peliculas -->    
 
                     <div align="center" id="sub-navigation">
-                        <table border="0" style="padding-top: 35px; padding-left: 35px;">
+                        <table  border="0" style="padding-top: 35px; padding-left: 35px;">
                             <tr>
                                 <td rowspan="7" align="center"> <img height="300" width="auto" src="<%= detalles.getPoster()%>"/> </td>
 
-                                <td class="titulo-ficha"> <%= detalles.getTitulo()%> (<%= detalles.getAnho()%>) </td>
+                                <td width="400" class="titulo-ficha" > <%= detalles.getTitulo()%> (<%= detalles.getAnho()%>) </td>
 
-                                <td rowspan="6" align="center"> 
+                                <td width="200" rowspan="6" align="center"> 
 
                                     <% if (p.getMedia() <= 2.0) { %>
                                     <div class="puntuacion rojo">
@@ -172,7 +172,7 @@
                                             <% if (p.getMedia() <= 4.0) { %>
                                             <div class="puntuacion amarillo">
                                                 <% } else { %>
-                                                <% if (p.getMedia() <= 5.0) { %>
+                                                <% if (p.getMedia() < 5.0) { %>
                                                 <div class="puntuacion verde">
                                                     <% } else { %>
                                                     <div class="puntuacion azul">
@@ -181,7 +181,7 @@
                                                                 }
                                                             }%>
 
-                                                        <div class="valor-puntuacion decimal">
+                                                        <div style="padding-right: 10px" class="valor-puntuacion decimal">
                                                             <%= p.getMedia()%>
                                                         </div>
                                                     </div>
@@ -197,7 +197,7 @@
 
                                                     <br/>
                                                     <p> Valora la película </p>
-                                                    <div style="position: relative; top: 0px; left: 70px;">
+                                                    <div style="position: relative; top: 0px; left: 60px;">
                                                         <ul class="rating">
                                                             <li class="one"><a href="emitirValoracion.jsp?rate=1&idPelicula=<%=idPelicula%>"></a></li>
                                                             <li class="two"><a href="emitirValoracion.jsp?rate=2&idPelicula=<%=idPelicula%>"></a></li>
@@ -246,13 +246,14 @@
                                                 </div>
 
 
-                                                <div id="footer">
-                                                    <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
-                                                    <div style="clear:both;"></div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="footer">
+                                                    <p class="lf">Copyright &copy; 2013 <a href="#">Filmly</a> - All Rights Reserved</p>
+                                                    <div style="clear:both;"></div>
+                                                </div>                
 
                                     </body>
                                     </html>
