@@ -257,7 +257,7 @@ public class Modelo {
         Query q = em.createNativeQuery("select * from usuarios", Usuario.class);
         List<Usuario> usuariosTotales = q.getResultList();
 
-        KNN knn = new KNN( usuariosTotales, usuarioLogueado, 20, 1);
+        KNN knn = new KNN( usuariosTotales, usuarioLogueado, 5, 1);
         List<Usuario> vecinos = knn.evaluar();        
         
         List<Pelicula> peliculasRecomendables = getPeliculas(vecinos);

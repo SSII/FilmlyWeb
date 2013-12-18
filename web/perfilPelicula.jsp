@@ -196,6 +196,8 @@
                                                     <% } else { %>
 
                                                     <br/>
+                                                    
+                                                    <% if( !Controlador.getInstancia().getUsuarioLogueado().getPeliculasValoradas().contains( Controlador.getInstancia().getPelicula(idPelicula ))){ %>
                                                     <p> Valora la película </p>
                                                     <div style="position: relative; top: 0px; left: 60px;">
                                                         <ul class="rating">
@@ -206,6 +208,11 @@
                                                             <li class="five"><a href="emitirValoracion.jsp?rate=5&idPelicula=<%=idPelicula%>"></a></li>
                                                         </ul>
                                                     </div>
+                                                    <% } else{  %>
+                                                    
+                                                    <p> Ya has valorado esta película </p>
+                                                    <% } %>
+                                                    
 
                                                     <% }%>
 
