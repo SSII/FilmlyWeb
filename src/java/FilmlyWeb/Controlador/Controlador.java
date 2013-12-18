@@ -175,11 +175,6 @@ public class Controlador implements ObservadorCambioUsuarioLogueado{
     public List<Pelicula> obtenerRecomendaciones(){
         List<Pelicula> recomendaciones = new LinkedList<Pelicula>( modelo.obtenerRecomendaciones().keySet() );
         
-        
-        for (Pelicula pelicula : recomendaciones) {
-            System.out.println("PELICULA " + pelicula.getTitulo());
-        }
-        
         return recomendaciones;
     }
     
